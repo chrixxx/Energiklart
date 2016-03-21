@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    tools:context="com.venovu.energiklart.Tab_Fragment2_Kund">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Användande 1/3"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separatorLine"
+        android:layout_marginTop="70dp"
+        android:id="@+id/view" />
+
+    <SeekBar
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+
+        android:thumbTintMode="src_over"
+        android:progress="50"
+        android:id="@+id/seekBar"
+        android:layout_marginTop="92dp"
+        android:layout_toEndOf="@+id/textView" />
+
+    <SeekBar
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+
+        android:thumbTintMode="src_over"
+        android:progress="50"
+        android:id="@+id/seekBar2"
+        android:layout_marginTop="155dp"
+        android:layout_alignStart="@+id/seekBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Temperatur vintertid bostad"
+        android:id="@+id/textView"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Temperatur vintertid källare"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/seekBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
+
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/antal_boende"
+        android:id="@+id/spinner"
+        android:layout_below="@+id/seekBar2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="86dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Nybyggnadsår"
+        android:ems="10"
+        android:id="@+id/editText8"
+        android:layout_above="@+id/textView5"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="92dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/antal_våningsplan"
+        android:id="@+id/spinner2"
+        android:layout_alignTop="@+id/spinner"
+        android:layout_toEndOf="@+id/spinner" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ja"
+        android:id="@+id/radioButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="108dp" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nej"
+        android:id="@+id/radioButton2"
+        android:layout_alignTop="@+id/radioButton"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Energibesparande åtgärd senaste år:"
+        android:id="@+id/textView5"
+        android:layout_above="@+id/radioButton2"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friliggande hus"
+        android:id="@+id/radioButton3"
+        android:layout_below="@+id/radioButton4"
+        android:layout_alignStart="@+id/radioButton4" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gavelhus"
+        android:id="@+id/radioButton4"
+        android:layout_below="@+id/radioButton5"
+        android:layout_alignStart="@+id/radioButton5" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mellanliggande hus"
+        android:id="@+id/radioButton5"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/seekBar2" />
+
+</RelativeLayout>

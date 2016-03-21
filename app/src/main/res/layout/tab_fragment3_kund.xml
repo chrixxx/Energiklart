@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color"
+    android:orientation="horizontal"
+    tools:context="com.venovu.energiklart.Tab_Fragment3_Kund">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Användande 2/3"
+        android:id="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separatorLine"
+        android:layout_marginTop="70dp"
+        android:id="@+id/view" />
+
+    <View
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:background="@drawable/gradient_left"
+        android:layout_marginTop="130dp"
+        android:id="@+id/view2" />
+
+    <View
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:background="@drawable/gradient_right"
+        android:id="@+id/view4"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignParentEnd="true" />
+
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText9"
+        android:hint="Typ av panna"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/view2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Värmesystem"
+        android:textStyle="bold"
+        android:id="@+id/textView7"
+        android:layout_marginTop="105dp"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="Märke"
+        android:id="@+id/editText10"
+        android:layout_below="@+id/editText9"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Tillverkningsår"
+        android:id="@+id/editText11"
+        android:layout_below="@+id/editText10"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Beredarvolym"
+        android:id="@+id/editText12"
+        android:layout_below="@+id/editText11"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Förbrukning"
+        android:textStyle="bold"
+        android:id="@+id/textView8"
+        android:layout_above="@+id/view4"
+        android:layout_alignEnd="@+id/view4"
+        android:layout_marginEnd="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="kWh /år"
+        android:ems="10"
+        android:id="@+id/editText13"
+        android:layout_above="@+id/editText10"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="period datum ett år"
+        android:ems="10"
+        android:id="@+id/editText14"
+        android:layout_alignTop="@+id/editText10"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="H-el kWh /år"
+        android:ems="10"
+        android:id="@+id/editText15"
+        android:layout_above="@+id/editText12"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="vatten m3"
+        android:ems="10"
+        android:id="@+id/editText16"
+        android:layout_alignBaseline="@+id/editText12"
+        android:layout_alignBottom="@+id/editText12"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="kWh juli mån"
+        android:id="@+id/editText17"
+        android:layout_alignBaseline="@+id/editText19"
+        android:layout_alignBottom="@+id/editText19"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="kWh aug mån"
+        android:ems="10"
+        android:id="@+id/editText18"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/editText17"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:hint="Notiser"
+        android:id="@+id/editText19"
+        android:layout_below="@+id/editText12"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp" />
+
+</RelativeLayout>

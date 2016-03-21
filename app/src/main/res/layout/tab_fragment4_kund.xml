@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color"
+    android:orientation="horizontal"
+    tools:context="com.venovu.energiklart.Tab_Fragment4_Kund">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separatorLine"
+        android:layout_marginTop="70dp"
+        android:id="@+id/view" />
+
+    <View
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:id="@+id/view2"
+        android:background="@drawable/gradient_left"
+        android:layout_marginTop="130dp"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:id="@+id/view3"
+        android:background="@drawable/gradient_right"
+        android:layout_alignTop="@+id/view2"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Användande 3/3"
+        android:id="@+id/textView9"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"/>
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Radon"
+        android:textStyle="bold"
+        android:id="@+id/textView10"
+        android:layout_marginTop="105dp"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Bränsle"
+        android:textStyle="bold"
+        android:id="@+id/textView11"
+        android:layout_alignTop="@+id/textView10"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Olja m3/år"
+        android:ems="10"
+        android:id="@+id/editText24"
+        android:layout_below="@+id/view3"
+        android:layout_alignEnd="@+id/view3"
+        android:layout_marginTop="48dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Ved m3/år"
+        android:ems="10"
+        android:id="@+id/editText25"
+        android:layout_below="@+id/editText24"
+        android:layout_alignEnd="@+id/editText24"
+        android:layout_marginTop="52dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Pellets/brikett ton/år pall"
+        android:ems="10"
+        android:id="@+id/editText26"
+        android:layout_below="@+id/editText25"
+        android:layout_alignEnd="@+id/textView11"
+        android:layout_marginTop="67dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Klar"
+        android:id="@+id/checkBox2"
+        android:layout_marginBottom="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/textView11" />
+
+</RelativeLayout>
