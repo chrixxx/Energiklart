@@ -1,6 +1,7 @@
 package com.venovu.energiklart;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.net.URI;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import menu.BlankFragment;
@@ -39,12 +42,18 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.commit();
 
 
+        //Floating Action Button to start an email client
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:abc@gmail.com"));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Test App");
+                intent.putExtra(Intent.EXTRA_TEXT, "Email Body");
+                startActivity(intent);
+
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                  //      .setAction("Action", null).show();
             }
         });
 
@@ -58,11 +67,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        //Clickable avatar(Circular ImageView) in the NavigationDrawer header
         View headerView = navigationView.getHeaderView(0);
-        //CircleImageView userImage = (CircleImageView)findViewById(R.id.userImage);
-
-
-        //LinearLayout header = (LinearLayout)headerView.findViewById(R.id.header);
         CircleImageView userImage = (CircleImageView)headerView.findViewById(R.id.userImage);
         userImage.setOnClickListener(new View.OnClickListener() {
             @Override
