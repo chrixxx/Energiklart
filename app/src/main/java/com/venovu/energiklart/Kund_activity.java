@@ -5,6 +5,7 @@ package com.venovu.energiklart;
  * Venovu
  * christoffer.nordfeldt@venovu.com
  */
+// Stoffe l33t
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
