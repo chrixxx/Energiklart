@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import menu.BlankFragment;
@@ -55,6 +56,20 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        View headerView = navigationView.getHeaderView(0);
+        //CircleImageView userImage = (CircleImageView)findViewById(R.id.userImage);
+
+
+        //LinearLayout header = (LinearLayout)headerView.findViewById(R.id.header);
+        CircleImageView userImage = (CircleImageView)headerView.findViewById(R.id.userImage);
+        userImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Test test", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
     }
