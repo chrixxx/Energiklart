@@ -15,7 +15,7 @@
         android:inputType="textPersonName"
         android:hint="Användarnamn"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/user"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="174dp" />
@@ -26,9 +26,9 @@
         android:inputType="textPassword"
         android:hint="Lösenord"
         android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_below="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
+        android:id="@+id/pass"
+        android:layout_below="@+id/user"
+        android:layout_alignStart="@+id/user"
         android:layout_marginTop="40dp" />
 
     <TextView
@@ -39,15 +39,15 @@
         android:textSize="30dp"
         android:id="@+id/textView13"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText5"
+        android:layout_alignStart="@+id/user"
         android:layout_marginTop="50dp" />
 
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Logga in"
-        android:id="@+id/button2"
-        android:layout_below="@+id/editText6"
-        android:layout_alignStart="@+id/editText6"
+        android:id="@+id/login"
+        android:layout_below="@+id/pass"
+        android:layout_alignStart="@+id/pass"
         android:layout_marginTop="136dp" />
 </RelativeLayout>
