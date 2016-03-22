@@ -19,15 +19,8 @@ import android.widget.EditText;
 import android.widget.Toolbar;
 
 public class Kund_activity extends AppCompatActivity {
-    //Fragment 1 fält
 
 
-
-    //Fragment 2 fält
-
-    //Fragment 3 fält
-
-    //Fragment 4 fält
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
