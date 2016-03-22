@@ -9,4 +9,67 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.venovu.energiklart.Create_account">
 
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Användarnamn"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_marginTop="128dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="Telefonnummer"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Lösenord"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_below="@+id/editText3"
+        android:layout_alignStart="@+id/editText3"
+        android:layout_marginTop="40dp" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Skapa"
+        android:id="@+id/button"
+        android:layout_below="@+id/editText4"
+        android:layout_alignStart="@+id/editText4"
+        android:layout_marginTop="70dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Skapa ny användare"
+        android:id="@+id/textView12"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="40dp" />
 </RelativeLayout>

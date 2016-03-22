@@ -73,7 +73,9 @@ public class MainActivity extends AppCompatActivity
         userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Test test", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(MainActivity.this, Login_activity.class);
+                startActivity(i);
+                //Toast.makeText(MainActivity.this, "Test test", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -104,8 +106,10 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //appbar login
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, Login_activity.class);
+            startActivity(intent);
             return true;
         }
 
