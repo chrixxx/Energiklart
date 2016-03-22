@@ -11,8 +11,19 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 public class Kund_activity extends AppCompatActivity {
+    //Fragment 1 fält
+
+
+
+    //Fragment 2 fält
+
+    //Fragment 3 fält
+
+    //Fragment 4 fält
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
