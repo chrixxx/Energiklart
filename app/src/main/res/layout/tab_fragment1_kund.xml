@@ -14,19 +14,9 @@
         android:hint="Mäklare"
         android:ems="10"
         android:id="@+id/broker"
-        android:layout_below="@+id/view"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="30dp"
-        />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mäklare betalar"
-        android:id="@+id/brokerPay"
-        android:layout_alignBottom="@+id/broker"
-        android:layout_toEndOf="@+id/broker"
-        android:layout_marginStart="60dp" />
+        android:layout_marginTop="100dp"
+        android:layout_alignParentStart="true" />
+    
 
     <View
         android:layout_width="match_parent"
@@ -51,9 +41,9 @@
         android:hint="Ägarens namn"
         android:ems="10"
         android:id="@+id/name"
-        android:layout_below="@+id/brokerPay"
+        android:layout_below="@+id/broker"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="38dp" />
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="400dp"
@@ -64,7 +54,7 @@
         android:id="@+id/ssn"
         android:layout_below="@+id/name"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="36dp" />
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="400dp"
@@ -72,16 +62,17 @@
         android:hint="Fastighetsbeteckning"
         android:id="@+id/fastighetsNr"
         android:layout_below="@+id/ssn"
-        android:layout_marginTop="35dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Adress"
         android:id="@+id/adress"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/fastighetsNr"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="400dp"
@@ -92,7 +83,7 @@
         android:id="@+id/postNr"
         android:layout_below="@+id/adress"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="51dp" />
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="400dp"
@@ -101,7 +92,7 @@
         android:id="@+id/postort"
         android:layout_below="@+id/postNr"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:layout_width="400dp"
@@ -148,8 +139,40 @@
         android:layout_height="wrap_content"
         android:text="Spara"
         android:id="@+id/save"
+        android:layout_alignBottom="@+id/postort"
+        android:layout_alignEnd="@+id/fakturaAd"
+        android:layout_marginEnd="39dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mäklare betalar"
+        android:id="@+id/brokerPay"
+        android:layout_alignTop="@+id/adress"
+        android:layout_alignStart="@+id/fakturaAd" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fått BG"
+        android:id="@+id/checkBox3"
         android:layout_below="@+id/adress"
-        android:layout_alignStart="@+id/fakturaAd"
-        android:layout_marginStart="78dp" />
+        android:layout_alignStart="@+id/brokerPay" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faktura 30 dagar"
+        android:id="@+id/checkBox4"
+        android:layout_alignTop="@+id/checkBox5"
+        android:layout_toStartOf="@+id/save" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faktura 10 dagar"
+        android:id="@+id/checkBox5"
+        android:layout_alignTop="@+id/postNr"
+        android:layout_alignStart="@+id/checkBox3" />
 
 </RelativeLayout>

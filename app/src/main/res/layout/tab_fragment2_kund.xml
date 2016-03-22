@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     tools:context="com.venovu.energiklart.Tab_Fragment2_Kund">
 
@@ -80,9 +79,8 @@
         android:hint="Nybyggnadsår"
         android:ems="10"
         android:id="@+id/editText8"
-        android:layout_above="@+id/textView5"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="92dp" />
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -92,22 +90,6 @@
         android:layout_alignTop="@+id/spinner"
         android:layout_toEndOf="@+id/spinner" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ja"
-        android:id="@+id/radioButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="108dp" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nej"
-        android:id="@+id/radioButton2"
-        android:layout_alignTop="@+id/radioButton"
-        android:layout_alignEnd="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,8 +97,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Energibesparande åtgärd senaste år:"
         android:id="@+id/textView5"
-        android:layout_above="@+id/radioButton2"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/radioButton3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp" />
 
     <RadioButton
         android:layout_width="wrap_content"
@@ -141,5 +124,28 @@
         android:id="@+id/radioButton5"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/seekBar2" />
+
+    <RadioGroup
+        android:layout_width="220dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/radioButton3"
+        android:layout_alignEnd="@+id/editText8"
+        android:layout_marginTop="74dp">
+        
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Ja"
+            android:id="@+id/energibesparande_ja"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Nej"
+            android:id="@+id/energibesparande_nej"
+            android:checked="false" />
+
+    </RadioGroup>
 
 </RelativeLayout>

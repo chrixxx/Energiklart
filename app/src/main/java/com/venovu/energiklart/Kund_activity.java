@@ -7,12 +7,16 @@ package com.venovu.energiklart;
  */
 // Stoffe l33t
 
+import android.app.Activity;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toolbar;
 
 public class Kund_activity extends AppCompatActivity {
     //Fragment 1 fält
@@ -31,6 +35,8 @@ public class Kund_activity extends AppCompatActivity {
         setContentView(R.layout.activity_kund);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Kontakt-uppg"));
