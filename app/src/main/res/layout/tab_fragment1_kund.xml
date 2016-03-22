@@ -13,7 +13,7 @@
         android:inputType="textPersonName"
         android:hint="Mäklare"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/broker"
         android:layout_below="@+id/view"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
@@ -23,9 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mäklare betalar"
-        android:id="@+id/checkBox"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_toEndOf="@+id/editText"
+        android:id="@+id/brokerPay"
+        android:layout_alignBottom="@+id/broker"
+        android:layout_toEndOf="@+id/broker"
         android:layout_marginStart="60dp" />
 
     <View
@@ -50,8 +50,8 @@
         android:inputType="textPersonName"
         android:hint="Ägarens namn"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/checkBox"
+        android:id="@+id/name"
+        android:layout_below="@+id/brokerPay"
         android:layout_alignParentStart="true"
         android:layout_marginTop="38dp" />
 
@@ -61,8 +61,8 @@
         android:inputType="number"
         android:hint="Personnummer / Org. nummer"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
+        android:id="@+id/ssn"
+        android:layout_below="@+id/name"
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp" />
 
@@ -70,16 +70,16 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Fastighetsbeteckning"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
+        android:id="@+id/fastighetsNr"
+        android:layout_below="@+id/ssn"
         android:layout_marginTop="35dp"/>
 
     <EditText
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Adress"
-        android:id="@+id/editText5"
-        android:layout_below="@+id/editText4"
+        android:id="@+id/adress"
+        android:layout_below="@+id/fastighetsNr"
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp" />
 
@@ -89,8 +89,8 @@
         android:inputType="number"
         android:hint="Postnummer"
         android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_below="@+id/editText5"
+        android:id="@+id/postNr"
+        android:layout_below="@+id/adress"
         android:layout_alignParentStart="true"
         android:layout_marginTop="51dp" />
 
@@ -98,8 +98,8 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Postort"
-        android:id="@+id/editText7"
-        android:layout_below="@+id/editText6"
+        android:id="@+id/postort"
+        android:layout_below="@+id/postNr"
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp" />
 
@@ -109,7 +109,7 @@
         android:inputType="phone"
         android:hint="Telefonnummer"
         android:ems="10"
-        android:id="@+id/editText20"
+        android:id="@+id/phone"
         android:layout_below="@+id/view"
         android:layout_marginTop="30dp"
         android:layout_alignParentEnd="true" />
@@ -120,9 +120,9 @@
         android:inputType="phone"
         android:hint="Mobiltelefon"
         android:ems="10"
-        android:id="@+id/editText21"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_alignEnd="@+id/editText20" />
+        android:id="@+id/cell"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignEnd="@+id/phone" />
 
     <EditText
         android:layout_width="400dp"
@@ -130,16 +130,26 @@
         android:inputType="textEmailAddress"
         android:hint="E-post"
         android:ems="10"
-        android:id="@+id/editText22"
-        android:layout_alignBottom="@+id/editText3"
+        android:id="@+id/mail"
+        android:layout_alignBottom="@+id/ssn"
         android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:hint="Fakturaadress"
-        android:id="@+id/editText23"
-        android:layout_above="@+id/editText5"
+        android:id="@+id/fakturaAd"
+        android:layout_above="@+id/adress"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spara"
+        android:id="@+id/save"
+        android:layout_below="@+id/adress"
+        android:layout_alignStart="@+id/fakturaAd"
+        android:layout_marginStart="78dp" />
 
 </RelativeLayout>
