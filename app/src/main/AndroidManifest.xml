@@ -9,10 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.venovu.energiklart.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,21 +20,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.venovu.energiklart.Kund_activity"
+            android:name=".Kund_activity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.venovu.energiklart.Rond_activity"
+            android:name=".Rond_activity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment1_Kund" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment2_Kund" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment3_Kund" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment4_Kund" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment1_Rond" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment2_Rond" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment3_Rond" />
-        <activity android:name="com.venovu.energiklart.Tab_Fragment4_Rond"></activity>
+
+        <activity android:name=".Create_account"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
     </application>
 
 </manifest>
