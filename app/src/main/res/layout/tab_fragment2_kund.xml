@@ -24,53 +24,14 @@
         android:layout_marginTop="70dp"
         android:id="@+id/view" />
 
-    <SeekBar
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-
-        android:thumbTintMode="src_over"
-        android:progress="50"
-        android:id="@+id/seekBar"
-        android:layout_marginTop="92dp"
-        android:layout_toEndOf="@+id/textView" />
-
-    <SeekBar
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-
-        android:thumbTintMode="src_over"
-        android:progress="50"
-        android:id="@+id/seekBar2"
-        android:layout_marginTop="155dp"
-        android:layout_alignStart="@+id/seekBar" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Temperatur vintertid bostad"
-        android:id="@+id/textView"
-        android:layout_marginTop="100dp"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Temperatur vintertid källare"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/seekBar"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="39dp" />
-
     <Spinner
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:entries="@array/antal_boende"
         android:id="@+id/spinner"
-        android:layout_below="@+id/seekBar2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="86dp" />
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/editText20"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -79,9 +40,8 @@
         android:hint="Nybyggnadsår"
         android:ems="10"
         android:id="@+id/editText8"
-        android:layout_below="@+id/spinner"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="56dp" />
+        android:layout_above="@+id/radioGroup3"
+        android:layout_alignParentStart="true" />
 
     <Spinner
         android:layout_width="200dp"
@@ -134,7 +94,8 @@
         android:orientation="vertical"
         android:layout_alignBottom="@+id/radioGroup2"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="79dp">
+        android:layout_marginEnd="79dp"
+        android:id="@+id/radioGroup3">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -153,5 +114,27 @@
 
 
     </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Temp vintertid bostad"
+        android:id="@+id/editText20"
+        android:layout_below="@+id/view"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Temp vintertid källare"
+        android:id="@+id/editText21"
+        android:layout_alignTop="@+id/editText20"
+        android:layout_toEndOf="@+id/textView5"
+        android:layout_marginStart="56dp" />
 
 </RelativeLayout>
