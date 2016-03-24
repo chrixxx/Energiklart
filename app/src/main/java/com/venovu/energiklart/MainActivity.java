@@ -124,9 +124,12 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.main_container, new BlankFragment2());
+            fragmentTransaction.replace(R.id.main_container, new BlankFragment());
             fragmentTransaction.commit();
         } else if (id == R.id.nav_gallery) {
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.main_container, new BlankFragment());
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_slideshow) {
 

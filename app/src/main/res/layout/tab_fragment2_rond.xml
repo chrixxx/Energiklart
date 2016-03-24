@@ -3,10 +3,180 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
     tools:context="com.venovu.energiklart.Tab_Fragment2_Rond">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separatorLine"
+        android:layout_marginTop="100dp"
+        android:id="@+id/view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Radiatorer"
+        android:id="@+id/textView16"
+        android:layout_alignBottom="@+id/view"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oljefyllda"
+        android:id="@+id/checkBox18"
+        android:layout_below="@+id/view"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Platta äldre"
+        android:id="@+id/checkBox19"
+        android:layout_below="@+id/checkBox18"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mekaniska ventiler"
+        android:id="@+id/checkBox20"
+        android:layout_below="@+id/checkBox19"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saknas vred"
+        android:id="@+id/checkBox21"
+        android:layout_below="@+id/checkBox20"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Golvvärme vatten"
+        android:id="@+id/checkBox22"
+        android:layout_below="@+id/checkBox21"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vattenburna radiatorer med termostat"
+        android:id="@+id/checkBox23"
+        android:layout_below="@+id/checkBox22"
+        android:layout_alignStart="@+id/checkBox22" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Antal radiatorer"
+        android:id="@+id/editText28"
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/checkBox23"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Fönster"
+        android:id="@+id/textView17"
+        android:layout_alignTop="@+id/textView16"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Antal fönster"
+        android:ems="10"
+        android:id="@+id/editText29"
+        android:layout_alignTop="@+id/checkBox18"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="m2"
+        android:ems="10"
+        android:id="@+id/editText30"
+        android:layout_above="@+id/checkBox22"
+        android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normalstora"
+        android:id="@+id/checkBox24"
+        android:layout_below="@+id/checkBox23"
+        android:layout_alignStart="@+id/editText30" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2-glas"
+        android:id="@+id/checkBox25"
+        android:layout_below="@+id/checkBox24"
+        android:layout_alignStart="@+id/checkBox24" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2-glas iso"
+        android:id="@+id/checkBox26"
+        android:layout_below="@+id/checkBox25"
+        android:layout_alignStart="@+id/checkBox25" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3-glas"
+        android:id="@+id/checkBox27"
+        android:layout_below="@+id/editText28"
+        android:layout_alignStart="@+id/checkBox26" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3-glas iso"
+        android:id="@+id/checkBox28"
+        android:layout_below="@+id/checkBox27"
+        android:layout_alignStart="@+id/checkBox27" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kopplade"
+        android:id="@+id/checkBox29"
+        android:layout_below="@+id/checkBox28"
+        android:layout_alignStart="@+id/checkBox28" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delvis kopplade"
+        android:id="@+id/checkBox30"
+        android:layout_below="@+id/checkBox29"
+        android:layout_alignStart="@+id/checkBox29" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Klar"
+        android:id="@+id/button4"
+        android:layout_below="@+id/checkBox30"
+        android:layout_alignStart="@+id/checkBox30"
+        android:layout_marginTop="35dp" />
+
 
 </RelativeLayout>
