@@ -148,8 +148,8 @@
         android:ems="10"
         android:hint="kWh juli mån"
         android:id="@+id/editText17"
-        android:layout_alignBaseline="@+id/editText19"
-        android:layout_alignBottom="@+id/editText19"
+        android:layout_below="@+id/editText16"
+        android:layout_marginTop="40dp"
         android:layout_alignParentEnd="true" />
 
     <EditText
@@ -159,17 +159,8 @@
         android:hint="kWh aug mån"
         android:ems="10"
         android:id="@+id/editText18"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/editText17"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:hint="Notiser"
-        android:id="@+id/editText19"
-        android:layout_below="@+id/editText12"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="49dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="57dp" />
 
 </RelativeLayout>
