@@ -34,13 +34,13 @@ public class ParseJSON {
 
             names = new String[users.length()];
             pass = new String[users.length()];
-            JSONObject jsonObject = users.getJSONObject(0);
+            //JSONObject jsonObject = users.getJSONObject(0);
 
             for (int i = 0; i < users.length(); i++) {
                 JSONObject jr = (JSONObject) users.get(i);
                 names[i] = jr.getString(KEY_NAME);
                 pass[i] = jr.getString(KEY_PASS);
-                System.out.println(pass[i]);
+               // System.out.println(pass[i]);
             }
         } catch (JSONException e) {
             e.printStackTrace();

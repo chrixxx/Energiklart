@@ -57,8 +57,9 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
     private void showJSON(String json){
         ParseJSON pj = new ParseJSON(json);
         pj.parseJSON();
-        CustomList cl = new CustomList(this, ParseJSON.names,ParseJSON.pass);
+        CustomList cl = new CustomList(this, pj.names, pj.pass);
         listView.setAdapter(cl);
+
     }
 
     @Override

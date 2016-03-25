@@ -19,7 +19,7 @@ public class CustomList extends ArrayAdapter<String> {
     private Activity context;
 
     public CustomList (Activity context, String[] names, String[] pass){
-        super(context, R.layout.listview_layout);
+        super(context, R.layout.listview_layout, names);
         this.context = context;
         this.names = names;
         this.pass = pass;
