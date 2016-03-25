@@ -26,12 +26,15 @@ public class PagerAdapterRond extends FragmentStatePagerAdapter {
             case 1:
                 Tab_Fragment2_Rond tab2_rond = new Tab_Fragment2_Rond();
                 return tab2_rond;
+
+            /**
             case 2:
                 Tab_Fragment3_Rond tab3_rond = new Tab_Fragment3_Rond();
                 return tab3_rond;
             case 3:
                 Tab_Fragment4_Rond tab4_rond = new Tab_Fragment4_Rond();
                 return tab4_rond;
+             */
             default:
                 return null;
         }

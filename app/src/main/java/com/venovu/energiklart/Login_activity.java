@@ -1,8 +1,6 @@
 package com.venovu.energiklart;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,15 +25,15 @@ import java.util.Map;
 public class Login_activity extends AppCompatActivity {
     public static final String URL = "http://venovu.com/login.php";
     private StringRequest request;
-    public static final String userDetails = "userDetails" ;
+
     private Button login;
     private EditText user;
     private EditText pass;
     private Button account;
-    public static final String userName = "nameKey";
-    public static final String userPass = "passKey";
+    String userPass;
+
     private RequestQueue requestQueue;
-    SharedPreferences sharedpreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,8 @@ public class Login_activity extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         user = (EditText) findViewById(R.id.user);
         pass = (EditText) findViewById(R.id.pass);
-        sharedpreferences = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
+        userPass = user.getText().toString();
+
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -63,17 +62,17 @@ public class Login_activity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.names().get(0).equals("success")) {
                                 Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent.putExtra("headerUser", jsonObject.getString("success"));
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                                killActivity();
 
-                                String n  = user.getText().toString();
-                                String u  = pass.getText().toString();
-                                SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                                editor.putString(userName, n);
-                                editor.putString(userPass, u);
+                                //startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
-                                editor.commit();
-
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                //Intent sendUser = new Intent(Login_activity.this, MainActivity.class);
+                                //sendUser.putExtra("user", userPass);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
                             }
@@ -103,5 +102,9 @@ public class Login_activity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void killActivity(){
+        finish();
     }
 }

@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.URI;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentTransaction fragmentTransaction;
+    String userNameTest = "Christoffer Nordfeldt";
 
 
     @Override
@@ -40,6 +42,20 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_container, new BlankFragment());
         fragmentTransaction.commit();
+
+
+        //Intent passed from Login_activity to get the user name and
+        // and display it in the navigation drawer header
+        Bundle extras = getIntent().getExtras();
+
+        if(extras != null){
+            String headerUser = extras.getString("headerUser");
+
+            NavigationView navigationViewTest = (NavigationView) findViewById(R.id.nav_view);
+            View headerViewTest = navigationViewTest.getHeaderView(0);
+            TextView userName_header = (TextView)headerViewTest.findViewById(R.id.nav_header_user);
+            userName_header.setText(headerUser);
+        }
 
 
         //Floating Action Button to start an email client
@@ -74,7 +90,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, Login_activity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(i);
+                killActivity();
+
                 //Toast.makeText(MainActivity.this, "Test test", Toast.LENGTH_LONG).show();
             }
         });
@@ -124,9 +143,12 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.main_container, new BlankFragment2());
+            fragmentTransaction.replace(R.id.main_container, new BlankFragment());
             fragmentTransaction.commit();
         } else if (id == R.id.nav_gallery) {
+            fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.main_container, new BlankFragment());
+            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -141,6 +163,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void killActivity(){
+        finish();
     }
 
 

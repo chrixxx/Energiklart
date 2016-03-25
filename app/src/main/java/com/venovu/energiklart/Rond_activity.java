@@ -21,10 +21,10 @@ public class Rond_activity extends AppCompatActivity {
         //setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout2);
-        tabLayout.addTab(tabLayout.newTab().setText("Ventilation"));
-        tabLayout.addTab(tabLayout.newTab().setText("Radiatorer"));
-        tabLayout.addTab(tabLayout.newTab().setText("Vindsisolering"));
-        tabLayout.addTab(tabLayout.newTab().setText("Fönster"));
+        tabLayout.addTab(tabLayout.newTab().setText("Vent/Vindsisolering"));
+        tabLayout.addTab(tabLayout.newTab().setText("Radiatorer/Fönster"));
+        //tabLayout.addTab(tabLayout.newTab().setText("Övrigt"));
+        //tabLayout.addTab(tabLayout.newTab().setText("Fönster"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager2);

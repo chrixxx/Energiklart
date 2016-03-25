@@ -3,10 +3,156 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
     tools:context="com.venovu.energiklart.Tab_Fragment1_Rond">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/separatorLine"
+        android:layout_marginTop="100dp"
+        android:id="@+id/view" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mekanisk ventilation (F)"
+        android:id="@+id/checkBox7"
+        android:layout_below="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_marginTop="73dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mekanisk ventilation med återvinning (FX)"
+        android:id="@+id/checkBox8"
+        android:layout_below="@+id/checkBox7"
+        android:layout_alignStart="@+id/checkBox7" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mekanisk ventilation med från- och tilluft (FT)"
+        android:id="@+id/checkBox9"
+        android:layout_below="@+id/checkBox8"
+        android:layout_alignStart="@+id/checkBox8" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mekanisk ventialtion med från- och tilluft inkl värmeväxlare (FTX)"
+        android:id="@+id/checkBox10"
+        android:layout_below="@+id/checkBox9"
+        android:layout_alignStart="@+id/checkBox9" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Självdrag"
+        android:id="@+id/checkBox11"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/checkBox10" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nedsatt vent"
+        android:id="@+id/checkBox12"
+        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/checkBox11"
+        android:layout_toEndOf="@+id/checkBox11" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ventbilaga"
+        android:id="@+id/checkBox13"
+        android:layout_alignTop="@+id/checkBox12"
+        android:layout_toEndOf="@+id/checkBox12"
+        android:layout_marginStart="15dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="saknas invändigt reglage"
+        android:id="@+id/checkBox14"
+        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/checkBox13"
+        android:layout_toEndOf="@+id/checkBox13" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Vindsisolering tjocklek"
+        android:ems="10"
+        android:id="@+id/editText22"
+        android:layout_above="@+id/checkBox8"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Yta i m2"
+        android:ems="10"
+        android:id="@+id/editText23"
+        android:layout_alignBottom="@+id/checkBox10"
+        android:layout_alignStart="@+id/editText22" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Typ av isolering - befintlig"
+        android:id="@+id/editText27"
+        android:layout_alignTop="@+id/checkBox14"
+        android:layout_alignStart="@+id/editText23" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ja"
+        android:id="@+id/checkBox15"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/editText27"
+        android:layout_marginBottom="121dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nej"
+        android:id="@+id/checkBox16"
+        android:layout_marginStart="20dp"
+        android:layout_alignTop="@+id/checkBox15"
+        android:layout_toEndOf="@+id/checkBox15" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Diffspärr finns"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/checkBox15"
+        android:layout_alignStart="@+id/checkBox15"
+        android:layout_marginBottom="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ventilation"
+        android:id="@+id/textView14"
+        android:layout_marginTop="70dp"
+        android:layout_alignStart="@+id/view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Vindsisolering"
+        android:id="@+id/textView15"
+        android:layout_marginTop="70dp"
+        android:layout_toEndOf="@+id/checkBox16" />
 
 </RelativeLayout>
