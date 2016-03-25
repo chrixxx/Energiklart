@@ -14,7 +14,7 @@ public class ParseJSON {
     public static String[] names;
     public static String[] pass;
 
-    public static final String JSON_ARRAY = "result";
+
     public static final String KEY_NAME = "userName";
     public static final String KEY_PASS = "userPass";
 
@@ -27,18 +27,20 @@ public class ParseJSON {
     }
 
     protected void parseJSON() {
-        JSONObject jsonObject = null;
+
         try {
-            jsonObject = new JSONObject(json);
-            users = jsonObject.getJSONArray(JSON_ARRAY);
+            JSONArray users= new JSONArray(json);
+
 
             names = new String[users.length()];
             pass = new String[users.length()];
+            JSONObject jsonObject = users.getJSONObject(0);
 
             for (int i = 0; i < users.length(); i++) {
-                JSONObject jo = users.getJSONObject(i);
-                names[i] = jo.getString(KEY_NAME);
-                pass[i] = jo.getString(KEY_PASS);
+                JSONObject jr = (JSONObject) users.get(i);
+                names[i] = jr.getString(KEY_NAME);
+                pass[i] = jr.getString(KEY_PASS);
+                System.out.println(pass[i]);
             }
         } catch (JSONException e) {
             e.printStackTrace();
