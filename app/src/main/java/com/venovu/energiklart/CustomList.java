@@ -32,8 +32,8 @@ public class CustomList extends ArrayAdapter<String> {
         TextView lv_userName = (TextView) listViewItem.findViewById(R.id.lv_userName);
         TextView lv_userpass = (TextView) listViewItem.findViewById(R.id.lv_userPass);
 
-        lv_userName.setText(names[position]);
-        lv_userpass.setText(pass [position]);
+        lv_userName.setText("Username: " + names[position]);
+        lv_userpass.setText("Password: " + pass [position]);
 
 
         return listViewItem;
