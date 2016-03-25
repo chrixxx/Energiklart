@@ -139,9 +139,8 @@
         android:layout_height="wrap_content"
         android:text="Spara"
         android:id="@+id/save"
-        android:layout_alignBottom="@+id/postort"
-        android:layout_alignEnd="@+id/fakturaAd"
-        android:layout_marginEnd="39dp" />
+        android:layout_alignBottom="@+id/adress"
+        android:layout_alignParentEnd="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
