@@ -30,7 +30,7 @@ public class Login_activity extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private Button account;
-    String userPass;
+    String userPassing;
 
     private RequestQueue requestQueue;
 
@@ -45,7 +45,6 @@ public class Login_activity extends AppCompatActivity {
         login = (Button) findViewById(R.id.login);
         user = (EditText) findViewById(R.id.user);
         pass = (EditText) findViewById(R.id.pass);
-        userPass = user.getText().toString();
 
 
         requestQueue = Volley.newRequestQueue(this);
@@ -59,11 +58,12 @@ public class Login_activity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            userPassing = user.getText().toString();
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.names().get(0).equals("success")) {
                                 Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                intent.putExtra("headerUser", jsonObject.getString("success"));
+                                intent.putExtra("headerUser", userPassing);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();

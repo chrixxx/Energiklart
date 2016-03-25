@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity
             View headerViewTest = navigationViewTest.getHeaderView(0);
             TextView userName_header = (TextView)headerViewTest.findViewById(R.id.nav_header_user);
             userName_header.setText(headerUser);
+            navigationViewTest.getMenu().findItem(R.id.nav_send).setVisible(true);
         }
 
 
