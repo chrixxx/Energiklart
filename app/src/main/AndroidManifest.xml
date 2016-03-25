@@ -32,8 +32,9 @@
         <activity
             android:name=".Create_account"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".Login_activity"></activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".Login_activity" />
+        <activity android:name=".Listview_activity"></activity>
     </application>
 
 </manifest>

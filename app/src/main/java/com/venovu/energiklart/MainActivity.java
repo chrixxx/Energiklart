@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentTransaction fragmentTransaction;
-    String userNameTest = "Christoffer Nordfeldt";
 
 
     @Override
@@ -146,10 +145,18 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.main_container, new BlankFragment());
             fragmentTransaction.commit();
+
         } else if (id == R.id.nav_gallery) {
+
+            Intent intent = new Intent(MainActivity.this, Listview_activity.class);
+            startActivity(intent);
+
+            /**
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.main_container, new BlankFragment());
             fragmentTransaction.commit();
+             */
+
 
         } else if (id == R.id.nav_slideshow) {
 
