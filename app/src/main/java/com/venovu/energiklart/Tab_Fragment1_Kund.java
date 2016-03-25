@@ -6,8 +6,11 @@ package com.venovu.energiklart;
  * christoffer.nordfeldt@venovu.com
  */
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +50,7 @@ public class Tab_Fragment1_Kund extends Fragment {
     private EditText adress;
     private EditText broker;
     private EditText fastighetsNr;
-
+    public static final String userDetails = "userDetails" ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment1_kund, container, false);
@@ -64,6 +67,8 @@ public class Tab_Fragment1_Kund extends Fragment {
         adress = (EditText) view.findViewById(R.id.adress);
         broker = (EditText) view.findViewById(R.id.broker);
         fastighetsNr = (EditText)view.findViewById(R.id.fastighetsNr);
+
+
 
         Button save = (Button) view.findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +95,7 @@ public class Tab_Fragment1_Kund extends Fragment {
                     if (jsonObject.names().get(0).equals("success")) {
                         Toast.makeText(getActivity().getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
 
+
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
                     }
@@ -107,6 +113,9 @@ public class Tab_Fragment1_Kund extends Fragment {
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                SharedPreferences prefs = getActivity().getSharedPreferences(userDetails, Context.MODE_PRIVATE);
+                String restoredName = prefs.getString("nameKey", null);
+                String restoredPass = prefs.getString("passKey",null);
 
                 HashMap<String, String> hashMap = new HashMap<String, String>();
                 hashMap.put("ssn", ssn.getText().toString());
@@ -116,8 +125,8 @@ public class Tab_Fragment1_Kund extends Fragment {
                 hashMap.put("postNr", postNr.getText().toString());
                 hashMap.put("mobil", cell.getText().toString());
                 hashMap.put("mail", mail.getText().toString());
-                hashMap.put("user_userName", "root");
-                hashMap.put("user_userPass", "root");
+                hashMap.put("user_userName", restoredName);
+                hashMap.put("user_userPass", restoredPass);
                 hashMap.put("fastighetsNr", fastighetsNr.getText().toString());
                 hashMap.put("fakturaAdress", fakturaAd.getText().toString());
                 hashMap.put("postOrt", "Åhus");

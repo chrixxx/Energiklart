@@ -8,6 +8,8 @@ package com.venovu.energiklart;
 // Stoffe l33t
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -29,6 +31,7 @@ public class Kund_activity extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
