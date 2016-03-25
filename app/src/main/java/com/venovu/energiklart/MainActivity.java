@@ -1,6 +1,8 @@
 package com.venovu.energiklart;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,7 +29,7 @@ import menu.BlankFragment2;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    public static final String userDetails = "userDetails" ;
     FragmentTransaction fragmentTransaction;
     String userNameTest = "Christoffer Nordfeldt";
 
@@ -48,14 +50,19 @@ public class MainActivity extends AppCompatActivity
         // and display it in the navigation drawer header
         Bundle extras = getIntent().getExtras();
 
-        if(extras != null){
-            String headerUser = extras.getString("headerUser");
+
+
+
 
             NavigationView navigationViewTest = (NavigationView) findViewById(R.id.nav_view);
             View headerViewTest = navigationViewTest.getHeaderView(0);
             TextView userName_header = (TextView)headerViewTest.findViewById(R.id.nav_header_user);
-            userName_header.setText(headerUser);
-        }
+
+            SharedPreferences prefs = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
+            String restoredName = prefs.getString("nameKey", null);
+
+            userName_header.setText(restoredName);
+
 
 
         //Floating Action Button to start an email client
