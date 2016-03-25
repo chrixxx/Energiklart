@@ -4,11 +4,10 @@
     android:layout_height="match_parent"
     tools:context="menu.BlankFragment2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment 2 test"
-        android:background="#aabf33"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/listv">
+    </ListView>
 
 </FrameLayout>
