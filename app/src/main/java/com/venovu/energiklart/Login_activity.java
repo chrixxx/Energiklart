@@ -32,6 +32,7 @@ public class Login_activity extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private Button account;
+    private String loggedIn = "true";
     public static final String userDetails = "userDetails" ;
     public static final String userName = "nameKey";
     public static final String userPass = "passKey";
@@ -79,6 +80,7 @@ public class Login_activity extends AppCompatActivity {
 
                                 //För över username till navigation menu och visar vilken som är inloggad
                                 intent.putExtra("headerUser", userPassing);
+                                intent.putExtra("loggedIn", loggedIn);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();

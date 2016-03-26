@@ -28,6 +28,8 @@ import menu.BlankFragment2;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    boolean isLoggedIn = false;
+
     FragmentTransaction fragmentTransaction;
 
 
@@ -47,14 +49,20 @@ public class MainActivity extends AppCompatActivity
         // and display it in the navigation drawer header
         Bundle extras = getIntent().getExtras();
 
-        if(extras != null){
+        
+        if(extras.get("headerUser") != null){
             String headerUser = extras.getString("headerUser");
+
 
             NavigationView navigationViewTest = (NavigationView) findViewById(R.id.nav_view);
             View headerViewTest = navigationViewTest.getHeaderView(0);
             TextView userName_header = (TextView)headerViewTest.findViewById(R.id.nav_header_user);
             userName_header.setText(headerUser);
             navigationViewTest.getMenu().findItem(R.id.nav_send).setVisible(true);
+        }
+
+        if(extras.getString("loggedIn") != null){
+            isLoggedIn = true;
         }
 
 

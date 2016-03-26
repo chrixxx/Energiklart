@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#388e3c</color>
     <color name="colorAccent">#4caf50</color>
     <color name="text_color">#ffffff</color>
+    <color name="background">#ffffff</color>
     <color name="separatorLine">#606060</color>
+    <color name="listView_background">#E0E0E0</color>
 </resources>
