@@ -66,6 +66,8 @@ public class Login_activity extends AppCompatActivity {
                             if (jsonObject.names().get(0).equals("success")) {
                                 Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                                //shared preferences för username och password för att kunna skapa kund och hus
                                 String n  = user.getText().toString();
                                 String u  = pass.getText().toString();
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -74,11 +76,13 @@ public class Login_activity extends AppCompatActivity {
                                 editor.putString(userPass, u);
 
                                 editor.commit();
+
+                                //För över username till navigation menu och visar vilken som är inloggad
                                 intent.putExtra("headerUser", userPassing);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();
-                                ;
+
 
 
                                 //startActivity(new Intent(getApplicationContext(), MainActivity.class));
