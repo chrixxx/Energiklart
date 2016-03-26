@@ -68,7 +68,7 @@
         android:inputType="number"
         android:hint="Olja m3/år"
         android:ems="10"
-        android:id="@+id/editText24"
+        android:id="@+id/oljaM3"
         android:layout_below="@+id/view3"
         android:layout_alignEnd="@+id/view3"
         android:layout_marginTop="48dp" />
@@ -79,9 +79,9 @@
         android:inputType="number"
         android:hint="Ved m3/år"
         android:ems="10"
-        android:id="@+id/editText25"
-        android:layout_below="@+id/editText24"
-        android:layout_alignEnd="@+id/editText24"
+        android:id="@+id/vedM3"
+        android:layout_below="@+id/oljaM3"
+        android:layout_alignEnd="@+id/oljaM3"
         android:layout_marginTop="52dp" />
 
     <EditText
@@ -90,8 +90,8 @@
         android:inputType="number"
         android:hint="Pellets/brikett ton/år pall"
         android:ems="10"
-        android:id="@+id/editText26"
-        android:layout_below="@+id/editText25"
+        android:id="@+id/bränsle"
+        android:layout_below="@+id/vedM3"
         android:layout_alignEnd="@+id/textView11"
         android:layout_marginTop="67dp" />
 
@@ -99,33 +99,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Klar"
-        android:id="@+id/button3"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/editText26"
+        android:layout_alignStart="@+id/bränsle"
         android:layout_marginBottom="57dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bq Ja"
-        android:id="@+id/checkBox"
-        android:layout_alignTop="@+id/editText24"
+        android:id="@+id/bqJa"
+        android:layout_alignTop="@+id/oljaM3"
         android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kort/Lång"
-        android:id="@+id/checkBox2"
-        android:layout_below="@+id/editText24"
+        android:id="@+id/längd"
+        android:layout_below="@+id/oljaM3"
         android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nej ingen radon"
-        android:id="@+id/checkBox6"
-        android:layout_alignTop="@+id/editText25"
+        android:id="@+id/ingenRadon"
+        android:layout_alignTop="@+id/vedM3"
         android:layout_alignParentStart="true" />
 
     <EditText
@@ -134,16 +133,16 @@
         android:inputType="date"
         android:ems="10"
         android:hint="Datum"
-        android:id="@+id/editText7"
-        android:layout_alignBottom="@+id/editText26"
+        android:id="@+id/datum"
+        android:layout_alignBottom="@+id/bränsle"
         android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bq Nej"
-        android:id="@+id/checkBox17"
-        android:layout_alignTop="@+id/checkBox"
+        android:id="@+id/bqNej"
+        android:layout_alignTop="@+id/bqJa"
         android:layout_alignEnd="@+id/textView9" />
 
 </RelativeLayout>

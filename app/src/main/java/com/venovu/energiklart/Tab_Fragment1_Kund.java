@@ -36,7 +36,9 @@ import java.util.Map;
 
 public class Tab_Fragment1_Kund extends Fragment {
     StringRequest request;
+    StringRequest request1;
     public static final String URL = "http://venovu.com/registerKund.php";
+    public static final String URL1 = "http://venovu.com/registerBroker.php";
     RequestQueue requestQueue;
     private CheckBox brokerPay;
     private EditText name;
@@ -51,6 +53,9 @@ public class Tab_Fragment1_Kund extends Fragment {
     private EditText broker;
     private EditText fastighetsNr;
     public static final String userDetails = "userDetails" ;
+    public static final String socialNr = "ssnKey";
+    public static final String fastighetNr = "fastighetKey";
+    String value;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment1_kund, container, false);
@@ -74,7 +79,8 @@ public class Tab_Fragment1_Kund extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Req();
+                InsertKund();
+                //InsertBroker();
             }
         });
 
@@ -83,7 +89,7 @@ public class Tab_Fragment1_Kund extends Fragment {
     }
 
 
-    public void Req(){
+    public void InsertKund(){
         requestQueue = Volley.newRequestQueue(this.getActivity());
 
         request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -129,17 +135,72 @@ public class Tab_Fragment1_Kund extends Fragment {
                 hashMap.put("user_userPass", restoredPass);
                 hashMap.put("fastighetsNr", fastighetsNr.getText().toString());
                 hashMap.put("fakturaAdress", fakturaAd.getText().toString());
-                hashMap.put("postOrt", "Åhus");
+                hashMap.put("postOrt", postOrt.getText().toString());
                 hashMap.put("fakturanummer", "40");
                 hashMap.put("faktura10", "0");
                 hashMap.put("faktura30", "1");
+
+                //Sparar inskrivna fastighetnr och SSN till shared preferences
+                String fastighet  = fastighetsNr.getText().toString();
+                String ssNr = ssn.getText().toString();
+                SharedPreferences.Editor editor = prefs.edit();
+
+                editor.putString(fastighetNr, fastighet);
+                editor.putString(socialNr, ssNr);
+
+                editor.commit();
+
+
                 return hashMap;
             }
         };
         requestQueue.add(request);
     }
 
+        public void InsertBroker(){
+            requestQueue = Volley.newRequestQueue(this.getActivity());
 
+            request1 = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
+
+                @Override
+                public void onResponse(String response) {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        if (jsonObject.names().get(0).equals("success")) {
+                            Toast.makeText(getActivity().getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+
+
+                        } else {
+                            Toast.makeText(getActivity().getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+
+
+                    HashMap<String, String> hashMap = new HashMap<String, String>();
+                    hashMap.put("namn", broker.getText().toString());
+                    if(brokerPay.isChecked())
+                    hashMap.put("betalar", value = "1" );
+                    else
+                        hashMap.put("betalar", value = "0" );
+
+                    return hashMap;
+                }
+            };
+            requestQueue.add(request1);
+        }
 }
 
 

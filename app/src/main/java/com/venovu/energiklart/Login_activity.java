@@ -1,6 +1,8 @@
 package com.venovu.energiklart;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,11 +32,12 @@ public class Login_activity extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private Button account;
-    String userPassing;
-
+    public static final String userDetails = "userDetails" ;
+    public static final String userName = "nameKey";
+    public static final String userPass = "passKey";
     private RequestQueue requestQueue;
-
-
+    SharedPreferences sharedpreferences;
+    String userPassing;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +49,7 @@ public class Login_activity extends AppCompatActivity {
         user = (EditText) findViewById(R.id.user);
         pass = (EditText) findViewById(R.id.pass);
 
-
+        sharedpreferences = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
         requestQueue = Volley.newRequestQueue(this);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -63,10 +66,23 @@ public class Login_activity extends AppCompatActivity {
                             if (jsonObject.names().get(0).equals("success")) {
                                 Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                                //shared preferences för username och password för att kunna skapa kund och hus
+                                String n  = user.getText().toString();
+                                String u  = pass.getText().toString();
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                                editor.putString(userName, n);
+                                editor.putString(userPass, u);
+
+                                editor.commit();
+
+                                //För över username till navigation menu och visar vilken som är inloggad
                                 intent.putExtra("headerUser", userPassing);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();
+
 
 
                                 //startActivity(new Intent(getApplicationContext(), MainActivity.class));
