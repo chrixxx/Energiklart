@@ -75,6 +75,7 @@ public class Login_activity extends AppCompatActivity {
                                 String u  = pass.getText().toString();
                                 loggedIn = true;
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.clear().commit();
                                 editor.putBoolean(logg, loggedIn);
                                 editor.putString(userName, n);
                                 editor.putString(userPass, u);

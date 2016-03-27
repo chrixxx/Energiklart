@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
         Boolean restoredAuth = prefs.getBoolean("loggKey", true);
 
 
+
         //Intent passed from Login_activity to get the user name and
         // and display it in the navigation drawer header
        // Bundle extras = getIntent().getExtras();
