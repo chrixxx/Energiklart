@@ -1,6 +1,8 @@
 package com.venovu.energiklart;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -28,8 +30,8 @@ import menu.BlankFragment2;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    boolean isLoggedIn = false;
 
+    public static final String userDetails = "userDetails" ;
     FragmentTransaction fragmentTransaction;
 
 
@@ -44,25 +46,29 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.add(R.id.main_container, new BlankFragment());
         fragmentTransaction.commit();
 
+        SharedPreferences prefs = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
+        String restoredName = prefs.getString("nameKey", null);
+        Boolean restoredAuth = prefs.getBoolean("loggKey", true);
+
 
         //Intent passed from Login_activity to get the user name and
         // and display it in the navigation drawer header
-        Bundle extras = getIntent().getExtras();
+       // Bundle extras = getIntent().getExtras();
 
         
-        if(extras.get("headerUser") != null){
-            String headerUser = extras.getString("headerUser");
+        if(restoredName != null){
+
 
 
             NavigationView navigationViewTest = (NavigationView) findViewById(R.id.nav_view);
             View headerViewTest = navigationViewTest.getHeaderView(0);
             TextView userName_header = (TextView)headerViewTest.findViewById(R.id.nav_header_user);
-            userName_header.setText(headerUser);
+            userName_header.setText(restoredName);
             navigationViewTest.getMenu().findItem(R.id.nav_send).setVisible(true);
         }
 
-        if(extras.getString("loggedIn") != null){
-            isLoggedIn = true;
+        if(restoredAuth == true){
+
         }
 
 

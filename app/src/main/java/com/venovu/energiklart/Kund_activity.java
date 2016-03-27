@@ -8,12 +8,16 @@ package com.venovu.energiklart;
 // Stoffe l33t
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -67,23 +71,34 @@ public class Kund_activity extends AppCompatActivity {
             }
         });
 
-      /*           Försök att kalla på metoder i fragments i activity
+
+
+
+         /* Försök att kalla på metoder i fragments i activity
         spara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
-                Tab_Fragment1_Kund fragmentKund1 = (Tab_Fragment1_Kund) fm.findFragmentById(R.id.tab_fragment1_kund);
-                Tab_Fragment2_Kund fragmentKund2 = (Tab_Fragment2_Kund) fm.findFragmentById(R.id.tab_layout);
-                fragmentKund1.InsertKund();
+
+                Fragment fragment = getFragmentManager().findFragmentById(R.id.tab_layout);
+
+                ((Tab_Fragment1_Kund)fragment).InsertKund();
                 fragmentKund2.InsertHouse();
             }
         });
-    }
+    }*/
 
 
-    public void startRond(View v){
-        startActivity(new Intent(Kund_activity.this, Rond_activity.class));
+
     }
-    */
-}
+
+    @Override
+    public void onBackPressed ()
+    {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+
+        super.onBackPressed();
+
+    }
+
 }

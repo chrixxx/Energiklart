@@ -32,13 +32,15 @@ public class Login_activity extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private Button account;
-    private String loggedIn = "true";
+
     public static final String userDetails = "userDetails" ;
     public static final String userName = "nameKey";
     public static final String userPass = "passKey";
+    public static final String logg = "loggKey";
     private RequestQueue requestQueue;
     SharedPreferences sharedpreferences;
     String userPassing;
+    Boolean loggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +73,9 @@ public class Login_activity extends AppCompatActivity {
                                 //shared preferences för username och password för att kunna skapa kund och hus
                                 String n  = user.getText().toString();
                                 String u  = pass.getText().toString();
+                                loggedIn = true;
                                 SharedPreferences.Editor editor = sharedpreferences.edit();
-
+                                editor.putBoolean(logg, loggedIn);
                                 editor.putString(userName, n);
                                 editor.putString(userPass, u);
 
@@ -80,7 +83,7 @@ public class Login_activity extends AppCompatActivity {
 
                                 //För över username till navigation menu och visar vilken som är inloggad
                                 intent.putExtra("headerUser", userPassing);
-                                intent.putExtra("loggedIn", loggedIn);
+
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();
@@ -93,6 +96,10 @@ public class Login_activity extends AppCompatActivity {
                                 //sendUser.putExtra("user", userPass);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
+                                loggedIn = false;
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.clear().apply();
+
                             }
 
                         } catch (JSONException e) {

@@ -101,7 +101,8 @@
         android:text="Klar"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/bränsle"
-        android:layout_marginBottom="57dp" />
+        android:layout_marginBottom="57dp"
+        android:id="@+id/spara" />
 
     <CheckBox
         android:layout_width="wrap_content"
