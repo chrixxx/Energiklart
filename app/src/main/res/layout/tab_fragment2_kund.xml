@@ -79,13 +79,6 @@
             android:id="@+id/energibesparande_ja"
             android:checked="false" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Nej"
-            android:id="@+id/energibesparande_nej"
-            android:checked="false" />
-
     </RadioGroup>
 
     <RadioGroup
@@ -139,5 +132,33 @@
         android:layout_alignTop="@+id/bostadTemp"
         android:layout_toEndOf="@+id/textView5"
         android:layout_marginStart="56dp" />
+
+    <EditText
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Mäklare"
+        android:ems="10"
+        android:id="@+id/broker"
+        android:layout_alignTop="@+id/källarTemp"
+        android:layout_alignEnd="@+id/radioGroup3"
+        android:layout_alignStart="@+id/radioGroup3" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mäklare betalar"
+        android:id="@+id/brokerPay"
+        android:layout_above="@+id/våningSpinner"
+        android:layout_alignEnd="@+id/broker" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spara"
+        android:id="@+id/save"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

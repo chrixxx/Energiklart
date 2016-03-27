@@ -41,7 +41,7 @@ public class Kund_activity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        //spara = (Button)findViewById(R.id.spara);
+        spara = (Button)findViewById(R.id.spara);
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Kontakt-uppg"));
         tabLayout.addTab(tabLayout.newTab().setText("Användande"));
@@ -74,22 +74,25 @@ public class Kund_activity extends AppCompatActivity {
 
 
 
-         /* Försök att kalla på metoder i fragments i activity
+         /*Försök att kalla på metoder i fragments i activity
         spara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                android.support.v4.app.Fragment frag1 = adapter.getItem(0);
+                android.support.v4.app.Fragment frag2 = adapter.getItem(1);
+                ((Tab_Fragment1_Kund)frag1).InsertKund();
+                ((Tab_Fragment2_Kund)frag2).InsertHouse();
+                ((Tab_Fragment1_Kund)frag1).InsertBroker();
 
-                Fragment fragment = getFragmentManager().findFragmentById(R.id.tab_layout);
 
-                ((Tab_Fragment1_Kund)fragment).InsertKund();
-                fragmentKund2.InsertHouse();
+
             }
-        });
-    }*/
-
-
-
+        });*/
     }
+
+
+
+
 
     @Override
     public void onBackPressed ()

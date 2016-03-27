@@ -36,11 +36,11 @@ import java.util.Map;
 
 public class Tab_Fragment1_Kund extends Fragment {
     StringRequest request;
-    StringRequest request1;
+
     public static final String URL = "http://venovu.com/registerKund.php";
     public static final String URL1 = "http://venovu.com/registerBroker.php";
     RequestQueue requestQueue;
-    private CheckBox brokerPay;
+
     private EditText name;
     private EditText phone;
     private EditText fakturaAd;
@@ -50,17 +50,19 @@ public class Tab_Fragment1_Kund extends Fragment {
     private EditText mail;
     private EditText ssn;
     private EditText adress;
-    private EditText broker;
+
     private EditText fastighetsNr;
     public static final String userDetails = "userDetails" ;
     public static final String socialNr = "ssnKey";
     public static final String fastighetNr = "fastighetKey";
-    String value;
+
+
+    private Button save;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment1_kund, container, false);
+        save =(Button) view.findViewById(R.id.save);
 
-        brokerPay = (CheckBox) view.findViewById(R.id.brokerPay);
         name = (EditText) view.findViewById(R.id.name);
         phone = (EditText) view.findViewById(R.id.phone);
         fakturaAd = (EditText) view.findViewById(R.id.fakturaAd);
@@ -70,20 +72,18 @@ public class Tab_Fragment1_Kund extends Fragment {
         mail = (EditText) view.findViewById(R.id.mail);
         ssn = (EditText) view.findViewById(R.id.ssn);
         adress = (EditText) view.findViewById(R.id.adress);
-        broker = (EditText) view.findViewById(R.id.broker);
+
         fastighetsNr = (EditText)view.findViewById(R.id.fastighetsNr);
 
 
 
-        Button save = (Button) view.findViewById(R.id.save);
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InsertKund();
-                //InsertBroker();
             }
         });
-
 
         return view;
     }
@@ -143,10 +143,12 @@ public class Tab_Fragment1_Kund extends Fragment {
                 //Sparar inskrivna fastighetnr och SSN till shared preferences
                 String fastighet  = fastighetsNr.getText().toString();
                 String ssNr = ssn.getText().toString();
+
                 SharedPreferences.Editor editor = prefs.edit();
 
                 editor.putString(fastighetNr, fastighet);
                 editor.putString(socialNr, ssNr);
+
 
                 editor.commit();
 
@@ -157,50 +159,7 @@ public class Tab_Fragment1_Kund extends Fragment {
         requestQueue.add(request);
     }
 
-        public void InsertBroker(){
-            requestQueue = Volley.newRequestQueue(this.getActivity());
 
-            request1 = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
-
-                @Override
-                public void onResponse(String response) {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        if (jsonObject.names().get(0).equals("success")) {
-                            Toast.makeText(getActivity().getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
-
-
-                        } else {
-                            Toast.makeText(getActivity().getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
-                        }
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-
-                }
-            }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-
-
-                    HashMap<String, String> hashMap = new HashMap<String, String>();
-                    hashMap.put("namn", broker.getText().toString());
-                    if(brokerPay.isChecked())
-                    hashMap.put("betalar", value = "1" );
-                    else
-                        hashMap.put("betalar", value = "0" );
-
-                    return hashMap;
-                }
-            };
-            requestQueue.add(request1);
-        }
 }
 
 
