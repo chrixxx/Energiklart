@@ -132,15 +132,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Faktura 30 dagar"
-        android:id="@+id/checkBox4"
+        android:id="@+id/faktura30"
         android:layout_below="@+id/postNr"
-        android:layout_alignStart="@+id/checkBox5" />
+        android:layout_alignStart="@+id/faktura10" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Faktura 10 dagar"
-        android:id="@+id/checkBox5"
+        android:id="@+id/faktura10"
         android:layout_alignTop="@+id/postNr"
         android:layout_alignStart="@+id/checkBox3" />
 
@@ -150,7 +150,7 @@
         android:layout_height="wrap_content"
         android:text="Spara"
         android:id="@+id/save"
-        android:layout_alignTop="@+id/checkBox4"
+        android:layout_alignTop="@+id/faktura30"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="52dp" />
 

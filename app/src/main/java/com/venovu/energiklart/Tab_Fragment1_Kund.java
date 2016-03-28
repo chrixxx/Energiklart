@@ -50,7 +50,8 @@ public class Tab_Fragment1_Kund extends Fragment {
     private EditText mail;
     private EditText ssn;
     private EditText adress;
-
+    private CheckBox faktura10;
+    private CheckBox faktura30;
     private EditText fastighetsNr;
     public static final String userDetails = "userDetails" ;
     public static final String socialNr = "ssnKey";
@@ -72,7 +73,8 @@ public class Tab_Fragment1_Kund extends Fragment {
         mail = (EditText) view.findViewById(R.id.mail);
         ssn = (EditText) view.findViewById(R.id.ssn);
         adress = (EditText) view.findViewById(R.id.adress);
-
+        faktura10 = (CheckBox) view.findViewById(R.id.faktura10);
+        faktura30 = (CheckBox) view.findViewById(R.id.faktura30);
         fastighetsNr = (EditText)view.findViewById(R.id.fastighetsNr);
 
 
@@ -137,9 +139,14 @@ public class Tab_Fragment1_Kund extends Fragment {
                 hashMap.put("fakturaAdress", fakturaAd.getText().toString());
                 hashMap.put("postOrt", postOrt.getText().toString());
                 hashMap.put("fakturanummer", "40");
+                if(faktura10.isChecked())
+                    hashMap.put("faktura10", "1");
+                else
                 hashMap.put("faktura10", "0");
+                if(faktura30.isChecked())
                 hashMap.put("faktura30", "1");
-
+                else
+                    hashMap.put("faktura30", "0");
                 //Sparar inskrivna fastighetnr och SSN till shared preferences
                 String fastighet  = fastighetsNr.getText().toString();
                 String ssNr = ssn.getText().toString();

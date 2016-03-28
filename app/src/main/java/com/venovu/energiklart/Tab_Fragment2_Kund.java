@@ -43,30 +43,30 @@ public class Tab_Fragment2_Kund extends Fragment {
     private EditText byggår;
     private EditText källarTemp;
     private EditText bostadTemp;
-    private RadioButton energibesparande_ja;
-    private RadioButton getEnergibesparande_nej;
+    private CheckBox energibesparande_ja;
+
     private RadioButton friliggande;
     private RadioButton gavel;
     private RadioButton mellan;
     StringRequest request;
-    StringRequest request1;
+
     RequestQueue requestQueue;
     private CheckBox brokerPay;
     private EditText broker;
     private Button save;
     String value;
     String energibespar;
-
+    Boolean brokerTurn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_fragment2_kund, container, false);
-
+        brokerTurn = false;
         boende =(Spinner) view.findViewById(R.id.boendeSpinner);
         våningar =(Spinner) view.findViewById(R.id.våningSpinner);
         byggår = (EditText) view.findViewById(R.id.byggÅr);
         källarTemp = (EditText) view.findViewById(R.id.källarTemp);
         bostadTemp = (EditText) view.findViewById(R.id.bostadTemp);
-        energibesparande_ja = (RadioButton) view.findViewById(R.id.energibesparande_ja);
+        energibesparande_ja = (CheckBox) view.findViewById(R.id.energibespar);
         //getEnergibesparande_nej =(RadioButton) view.findViewById(R.id.energibesparande_nej);
         friliggande = (RadioButton) view.findViewById(R.id.friliggande);
         gavel = (RadioButton) view.findViewById(R.id.gavel);
@@ -79,7 +79,8 @@ public class Tab_Fragment2_Kund extends Fragment {
             @Override
             public void onClick(View v) {
                 InsertHouse();
-               // InsertBroker();
+                
+                InsertBroker();
             }
         });
 
@@ -126,8 +127,8 @@ public class Tab_Fragment2_Kund extends Fragment {
                 HashMap<String, String> hashMap = new HashMap<String, String>();
                 hashMap.put("user_userName", restoredName);
                 hashMap.put("user_userPass", restoredPass);
-                hashMap.put("våningar", "2");
-                hashMap.put("antalBoende", "1");
+                hashMap.put("floors", våningar.getSelectedItem().toString());
+                hashMap.put("antalBoende", boende.getSelectedItem().toString());
 
                 if(friliggande.isChecked())
                 hashMap.put("friliggande", "1");
@@ -143,7 +144,7 @@ public class Tab_Fragment2_Kund extends Fragment {
                 hashMap.put("mellanLiggande", "1");
                 else
                     hashMap.put("mellanLiggande", "0");
-                hashMap.put("byggnadsår", byggår.getText().toString());
+                hashMap.put("buildYear", byggår.getText().toString());
                 hashMap.put("owner_fastighetsNr", restoredFnr);
                 hashMap.put("owner_ssn", restoredSsn);
                 hashMap.put("tempVintertid", bostadTemp.getText().toString());
@@ -156,6 +157,7 @@ public class Tab_Fragment2_Kund extends Fragment {
 
 
 
+                System.out.println(restoredName + " " + restoredPass + " " + restoredFnr + " " + restoredSsn);
 
 
                 return hashMap;
@@ -167,7 +169,7 @@ public class Tab_Fragment2_Kund extends Fragment {
     public void InsertBroker(){
         requestQueue = Volley.newRequestQueue(this.getActivity());
 
-        request1 = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
+        request = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -199,13 +201,13 @@ public class Tab_Fragment2_Kund extends Fragment {
                 HashMap<String, String> hashMap = new HashMap<String, String>();
                 hashMap.put("namn", broker.getText().toString());
                 if(brokerPay.isChecked())
-                    hashMap.put("betalar", value = "1" );
+                    hashMap.put("betalar", "1" );
                 else
-                    hashMap.put("betalar", value = "0" );
+                    hashMap.put("betalar", "0");
 
                 return hashMap;
             }
         };
-        requestQueue.add(request1);
+        requestQueue.add(request);
     }
 }
