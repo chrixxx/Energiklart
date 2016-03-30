@@ -79,7 +79,8 @@ public class Tab_Fragment2_Kund extends Fragment {
             @Override
             public void onClick(View v) {
                 InsertHouse();
-                
+                brokerTurn = true;
+                if(brokerTurn == true)
                 InsertBroker();
             }
         });
