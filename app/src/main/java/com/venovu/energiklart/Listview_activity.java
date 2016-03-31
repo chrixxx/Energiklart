@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,26 +21,46 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Listview_activity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String JSON_URL = "http://venovu.com/fetchHouseData.php";
+    public static final String JSON_URL1 = "http://venovu.com/fetchOwner.php";
     public static final String userDetails = "userDetails" ;
     private Button buttonGet;
-
+    private Button pdfButton;
+    RequestQueue requestQueue;
+    StringRequest request;
     private ListView listView;
+    private EditText nameText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview);
-
+        nameText = (EditText) findViewById(R.id.name);
+        pdfButton = (Button) findViewById(R.id.pdfButton);
         buttonGet = (Button) findViewById(R.id.buttonGet);
         buttonGet.setOnClickListener(this);
         listView = (ListView) findViewById(R.id.listView);
+
+
+        pdfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Pdf();
+            }
+        });
     }
+
+
 
     private void sendRequest(){
 
@@ -55,20 +76,9 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(Listview_activity.this,error.getMessage(),Toast.LENGTH_LONG).show();
                     }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                SharedPreferences prefs = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
-                String restoredName = prefs.getString("nameKey", null);
-
-                HashMap<String, String> hashMap = new HashMap<String, String>();
-                hashMap.put("owner.user_userName", restoredName);
+                }) ;
 
 
-                return hashMap;
-            }
-        };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
@@ -89,4 +99,74 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
 
+    public void Pdf(){
+        final PdfCreator pdfCreator = new PdfCreator();
+        requestQueue = Volley.newRequestQueue(this);
+
+        request = new StringRequest(Request.Method.POST, JSON_URL1,   new Response.Listener<String>() {
+
+
+
+
+            @Override
+            public void onResponse(String response) {
+                try {
+
+
+
+                    JSONArray value = new JSONArray(response);
+
+
+                    for(int i=0;i<value.length();i++) {
+                        JSONObject jr = (JSONObject) value.get(i);
+
+                        String namn = jr.getString("namn");
+                        String fastighetsNr = jr.getString("fastighetsNr");
+                        String adress = jr.getString("adress");
+                        String buildYear = jr.getString("buildYear");
+
+
+
+                        pdfCreator.createPDF(namn, fastighetsNr, adress, buildYear);
+
+
+                    }
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+
+
+                HashMap<String, String> hashMap = new HashMap<String, String>();
+                hashMap.put("namn", nameText.getText().toString());
+
+
+                return hashMap;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+
 }
+
+
+
+
+
+
+

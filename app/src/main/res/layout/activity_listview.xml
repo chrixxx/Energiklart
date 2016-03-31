@@ -29,17 +29,17 @@
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:text="PDF"
-        android:id="@+id/button"
+        android:id="@+id/pdfButton"
         android:layout_marginBottom="88dp"
         android:layout_alignBottom="@+id/listView"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignStart="@+id/owner" />
 
     <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/owner"
         android:hint="Ägare"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/pdfButton"
         android:layout_alignStart="@+id/buttonGet"
         android:layout_marginBottom="40dp" />
     <!-- android:background="@color/listView_background"-->
