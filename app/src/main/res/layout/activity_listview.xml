@@ -10,16 +10,37 @@
     tools:context="com.venovu.energiklart.Listview_activity">
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
         android:text="Get Data"
-        android:id="@+id/buttonGet" />
+        android:id="@+id/buttonGet"
+        android:layout_marginTop="140dp"
+        android:layout_alignTop="@+id/listView"
+        android:layout_centerHorizontal="true" />
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="400dp"
+        android:layout_height="800dp"
         android:id="@+id/listView"
-        android:layout_below="@+id/buttonGet"
+        android:layout_centerVertical="true"
         android:layout_alignParentStart="true" />
-        <!-- android:background="@color/listView_background"-->
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:text="PDF"
+        android:id="@+id/button"
+        android:layout_marginBottom="88dp"
+        android:layout_alignBottom="@+id/listView"
+        android:layout_alignStart="@+id/editText" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:hint="Ägare"
+        android:layout_above="@+id/button"
+        android:layout_alignStart="@+id/buttonGet"
+        android:layout_marginBottom="40dp" />
+    <!-- android:background="@color/listView_background"-->
 </RelativeLayout>

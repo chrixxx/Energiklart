@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,25 @@ public class Tab_Fragment1_Kund extends Fragment {
     public static final String userDetails = "userDetails" ;
     public static final String socialNr = "ssnKey";
     public static final String fastighetNr = "fastighetKey";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private Button save;

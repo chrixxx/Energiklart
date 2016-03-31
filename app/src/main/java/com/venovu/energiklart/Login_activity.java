@@ -36,10 +36,14 @@ public class Login_activity extends AppCompatActivity {
     public static final String userDetails = "userDetails" ;
     public static final String userName = "nameKey";
     public static final String userPass = "passKey";
+    public static final String userMail = "mailKey";
     public static final String logg = "loggKey";
+    private static final String rootPass = "root";
+    private String mail;
     private RequestQueue requestQueue;
     SharedPreferences sharedpreferences;
     String userPassing;
+    String getPass;
     Boolean loggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +69,38 @@ public class Login_activity extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             userPassing = user.getText().toString();
+                            getPass = pass.getText().toString();
+
                             JSONObject jsonObject = new JSONObject(response);
-                            if (jsonObject.names().get(0).equals("success")) {
+
+                            if (userPassing.equals(rootPass) && getPass.equals(rootPass)) {
+                                //Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), Create_account.class);
+
+                                /**
+                                //shared preferences för username och password för att kunna skapa kund och hus
+                                String n = user.getText().toString();
+                                String u = pass.getText().toString();
+                                loggedIn = true;
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.clear().commit();
+                                editor.putBoolean(logg, loggedIn);
+                                editor.putString(userName, n);
+                                editor.putString(userPass, u);
+
+                                editor.commit();
+                                 */
+
+
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                startActivity(intent);
+                                killActivity();
+                            }
+
+
+
+
+                            else if (jsonObject.names().get(0).equals("success")) {
                                 Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 

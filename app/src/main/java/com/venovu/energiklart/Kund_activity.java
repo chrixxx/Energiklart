@@ -29,7 +29,6 @@ import android.widget.Toolbar;
 
 public class Kund_activity extends AppCompatActivity {
 
-    private Button spara;
 
 
     @Override
@@ -41,7 +40,6 @@ public class Kund_activity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        spara = (Button)findViewById(R.id.spara);
         final TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Kontakt-uppg"));
         tabLayout.addTab(tabLayout.newTab().setText("Användande"));

@@ -12,10 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class Tab_Fragment4_Kund extends Fragment {
 
 
+    Button testButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -23,6 +25,20 @@ public class Tab_Fragment4_Kund extends Fragment {
 
 
 
+        testButton = (Button)view.findViewById(R.id.testButton);
+
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ownerString = ((EditText)getActivity().findViewById(R.id.name)).getText().toString();
+
+                System.out.println(ownerString);
+            }
+        });
+
+
         return view;
     }
+
+
 }
