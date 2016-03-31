@@ -15,25 +15,33 @@ import android.widget.TextView;
 public class CustomList extends ArrayAdapter<String> {
 
     private String [] names;
-    private String [] pass;
+    private String [] fNr;
+    private String [] adress;
+    private String [] byggår;
     private Activity context;
 
-    public CustomList (Activity context, String[] names, String[] pass){
+    public CustomList (Activity context, String[] names, String[] fNr, String[] adress, String[] byggår){
         super(context, R.layout.listview_layout, names);
         this.context = context;
         this.names = names;
-        this.pass = pass;
+        this.fNr = fNr;
+        this.adress = adress;
+        this.byggår = byggår;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View listViewItem = inflater.inflate(R.layout.listview_layout, null, true);
-        TextView lv_userName = (TextView) listViewItem.findViewById(R.id.lv_userName);
-        TextView lv_userpass = (TextView) listViewItem.findViewById(R.id.lv_userPass);
+        TextView lv_owner = (TextView) listViewItem.findViewById(R.id.lv_owner);
+        TextView lv_fNr = (TextView) listViewItem.findViewById(R.id.lv_fNr);
+        TextView lv_adress = (TextView) listViewItem.findViewById(R.id.lv_adress);
+        TextView lv_byggår = (TextView) listViewItem.findViewById(R.id.lv_byggår);
 
-        lv_userName.setText("Username: " + names[position]);
-        lv_userpass.setText("Password: " + pass [position]);
+        lv_owner.setText("Ägare: " + names[position]);
+        lv_fNr.setText("Fastighets Nr: " + fNr [position]);
+        lv_adress.setText("Adress: " + adress [position]);
+        lv_byggår.setText("Byggår: " + byggår [position]);
 
 
         return listViewItem;

@@ -48,8 +48,8 @@ public class Tab_Fragment2_Kund extends Fragment {
     private RadioButton friliggande;
     private RadioButton gavel;
     private RadioButton mellan;
-    StringRequest request;
-
+    StringRequest requestHouse;
+    StringRequest requestBroker;
     RequestQueue requestQueue;
     private CheckBox brokerPay;
     private EditText broker;
@@ -74,14 +74,15 @@ public class Tab_Fragment2_Kund extends Fragment {
         brokerPay = (CheckBox) view.findViewById(R.id.brokerPay);
         save =(Button) view.findViewById(R.id.save);
         broker = (EditText) view.findViewById(R.id.broker);
+        requestQueue = Volley.newRequestQueue(this.getActivity());
+
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 InsertHouse();
-                brokerTurn = true;
-                if(brokerTurn == true)
-                InsertBroker();
+                //InsertBroker();
+
             }
         });
 
@@ -90,9 +91,9 @@ public class Tab_Fragment2_Kund extends Fragment {
 
 
     public void InsertHouse(){
-        requestQueue = Volley.newRequestQueue(this.getActivity());
 
-        request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+        requestHouse = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -164,13 +165,13 @@ public class Tab_Fragment2_Kund extends Fragment {
                 return hashMap;
             }
         };
-        requestQueue.add(request);
+        requestQueue.add(requestHouse);
     }
 
     public void InsertBroker(){
-        requestQueue = Volley.newRequestQueue(this.getActivity());
 
-        request = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
+
+        requestBroker = new StringRequest(Request.Method.POST, URL1, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
@@ -209,6 +210,6 @@ public class Tab_Fragment2_Kund extends Fragment {
                 return hashMap;
             }
         };
-        requestQueue.add(request);
+        requestQueue.add(requestBroker);
     }
 }
