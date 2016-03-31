@@ -14,9 +14,9 @@
         android:layout_height="70dp"
         android:text="Get Data"
         android:id="@+id/buttonGet"
-        android:layout_marginTop="140dp"
         android:layout_alignTop="@+id/listView"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="57dp" />
 
     <ListView
         android:layout_width="400dp"
