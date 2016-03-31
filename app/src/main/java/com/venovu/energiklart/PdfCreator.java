@@ -79,11 +79,11 @@ public class PdfCreator extends AppCompatActivity{
         addEmptyLine(preface, 3);
 
 
-        preface.add(new Paragraph("Ägare" + owner,
+        preface.add(new Paragraph("Ägare: " + owner,
                 smallBold));
         addEmptyLine(preface, 1);
 
-        preface.add(new Paragraph("Fastighets Nr: " + fNr,
+        preface.add(new Paragraph("Fastighetsbeteckning: " + fNr,
                 smallBold));
         addEmptyLine(preface, 1);
 
