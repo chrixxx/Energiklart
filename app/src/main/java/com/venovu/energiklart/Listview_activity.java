@@ -1,5 +1,7 @@
 package com.venovu.energiklart;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -10,16 +12,21 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Listview_activity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String JSON_URL = "http://venovu.com/testfetch.php";
-
+    public static final String JSON_URL = "http://venovu.com/fetchHouseData.php";
+    public static final String userDetails = "userDetails" ;
     private Button buttonGet;
 
     private ListView listView;
@@ -36,7 +43,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
     private void sendRequest(){
 
-        StringRequest stringRequest = new StringRequest(JSON_URL,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -48,7 +55,20 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(Listview_activity.this,error.getMessage(),Toast.LENGTH_LONG).show();
                     }
-                });
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                SharedPreferences prefs = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
+                String restoredName = prefs.getString("nameKey", null);
+
+                HashMap<String, String> hashMap = new HashMap<String, String>();
+                hashMap.put("owner.user_userName", restoredName);
+
+
+                return hashMap;
+            }
+        };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
@@ -57,7 +77,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
     private void showJSON(String json){
         ParseJSON pj = new ParseJSON(json);
         pj.parseJSON();
-        CustomList cl = new CustomList(this, pj.names, pj.pass);
+        CustomList cl = new CustomList(this, pj.names, pj.fNr, pj.adress, pj.byggår);
         listView.setAdapter(cl);
 
     }

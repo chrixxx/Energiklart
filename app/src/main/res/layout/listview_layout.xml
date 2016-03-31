@@ -8,12 +8,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:id="@+id/lv_userName" />
+        android:id="@+id/lv_owner" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:id="@+id/lv_userPass" />
+        android:id="@+id/lv_fNr" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_adress"
+
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_byggår"
+
+        android:textSize="18dp" />
 
 </LinearLayout>
