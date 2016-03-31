@@ -45,7 +45,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listview);
-        nameText = (EditText) findViewById(R.id.name);
+        nameText = (EditText) findViewById(R.id.owner);
         pdfButton = (Button) findViewById(R.id.pdfButton);
         buttonGet = (Button) findViewById(R.id.buttonGet);
         buttonGet.setOnClickListener(this);
