@@ -16,7 +16,7 @@
     <Button
         android:layout_width="600dp"
         android:layout_height="80dp"
-        android:text="Kund"
+        android:text="Starta"
         android:textColor="#ffffff"
         android:textSize="30dp"
         android:textStyle="bold"
