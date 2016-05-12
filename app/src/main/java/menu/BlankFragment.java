@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.venovu.energiklart.Kund_activity;
+import com.venovu.energiklart.Make_performance;
 import com.venovu.energiklart.R;
 import com.venovu.energiklart.Rond_activity;
 
@@ -30,7 +31,7 @@ public class BlankFragment extends Fragment {
         buttonK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), Kund_activity.class);
+                Intent i = new Intent(getActivity(), Make_performance.class);
                 startActivity(i);
             }
         });

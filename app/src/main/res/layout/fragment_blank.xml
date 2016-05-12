@@ -39,6 +39,7 @@
         android:layout_below="@+id/buttonKund"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="79dp"
-        android:id="@+id/buttonRond" />
+        android:id="@+id/buttonRond"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

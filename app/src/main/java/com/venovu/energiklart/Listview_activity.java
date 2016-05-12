@@ -1,6 +1,7 @@
 package com.venovu.energiklart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -58,6 +60,24 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                 Pdf();
             }
         });
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position < 0) {
+                    System.out.println("WRONG!!!!");
+
+                } else {
+                    System.out.println("CORRECT!!!");
+                    System.out.println(position);
+                    System.out.println(id);
+
+                }
+            }
+        });
+
     }
 
 
@@ -160,6 +180,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
         };
         requestQueue.add(request);
     }
+
 
 
 }
