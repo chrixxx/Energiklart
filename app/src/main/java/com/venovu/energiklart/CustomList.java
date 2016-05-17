@@ -23,10 +23,10 @@ public class CustomList extends ArrayAdapter<String> {
     public CustomList (Activity context, String[] names, String[] fNr, String[] adress, String[] byggår){
         super(context, R.layout.listview_layout, names);
         this.context = context;
-        this.names = names;
-        this.fNr = fNr;
-        this.adress = adress;
-        this.byggår = byggår;
+        this.setNames(names);
+        this.setfNr(fNr);
+        this.setAdress(adress);
+        this.setByggår(byggår);
     }
 
     @Override
@@ -38,12 +38,44 @@ public class CustomList extends ArrayAdapter<String> {
         TextView lv_adress = (TextView) listViewItem.findViewById(R.id.lv_adress);
         TextView lv_byggår = (TextView) listViewItem.findViewById(R.id.lv_byggår);
 
-        lv_owner.setText("Ägare: " + names[position]);
-        lv_fNr.setText("Fastighets Nr: " + fNr [position]);
-        lv_adress.setText("Adress: " + adress [position]);
-        lv_byggår.setText("Byggår: " + byggår [position]);
+        lv_owner.setText("Ägare: " + getNames()[position]);
+        lv_fNr.setText("Fastighets Nr: " + getfNr()[position]);
+        lv_adress.setText("Adress: " + getAdress()[position]);
+        lv_byggår.setText("Byggår: " + getByggår()[position]);
 
 
         return listViewItem;
+    }
+
+    public String[] getNames() {
+        return names;
+    }
+
+    public void setNames(String[] names) {
+        this.names = names;
+    }
+
+    public String[] getfNr() {
+        return fNr;
+    }
+
+    public void setfNr(String[] fNr) {
+        this.fNr = fNr;
+    }
+
+    public String[] getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String[] adress) {
+        this.adress = adress;
+    }
+
+    public String[] getByggår() {
+        return byggår;
+    }
+
+    public void setByggår(String[] byggår) {
+        this.byggår = byggår;
     }
 }

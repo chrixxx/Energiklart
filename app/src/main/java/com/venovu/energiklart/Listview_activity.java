@@ -1,6 +1,9 @@
 package com.venovu.energiklart;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -43,6 +47,9 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
     private ListView listView;
     private EditText nameText;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +59,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
         buttonGet = (Button) findViewById(R.id.buttonGet);
         buttonGet.setOnClickListener(this);
         listView = (ListView) findViewById(R.id.listView);
+
 
 
         pdfButton.setOnClickListener(new View.OnClickListener() {
@@ -66,13 +74,32 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
                 if (position < 0) {
                     System.out.println("WRONG!!!!");
 
                 } else {
+
+                    alertD();
                     System.out.println("CORRECT!!!");
                     System.out.println(position);
                     System.out.println(id);
+
+
+
+                    TextView adresstv = (TextView) view.findViewById(R.id.lv_adress);
+
+                
+
+
+
+
+
+                    String str = (String) parent.getItemAtPosition(position);
+                    String adress = adresstv.getText().toString();
+                    System.out.println(str);
+                    System.out.println(adress);
+
 
                 }
             }
@@ -183,6 +210,33 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
 
+    //popup dialog test
+    public void alertD() {
+
+        AlertDialog.Builder alertdialog = new AlertDialog.Builder(Listview_activity.this);
+        alertdialog.setTitle("PDF/Editera");
+        alertdialog.setMessage("Vad vill du göra?").setCancelable(true)
+
+                .setNegativeButton("PDF", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(Listview_activity.this, "You Clicked on no", Toast.LENGTH_LONG).show();
+                    }
+                }).setPositiveButton("Editera", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Listview_activity.this.finish();
+            }
+        })
+                .setNeutralButton("Avbryt", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(Listview_activity.this, "You Clicked on cancel", Toast.LENGTH_LONG).show();
+                    }
+                });
+        alertdialog.show();
+
+    }
 }
 
 
