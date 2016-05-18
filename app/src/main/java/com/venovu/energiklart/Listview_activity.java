@@ -46,6 +46,8 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
     StringRequest request;
     private ListView listView;
     private EditText nameText;
+    private String name;
+    private String adress;
 
 
 
@@ -62,6 +64,8 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
 
+
+
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,9 +74,12 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
         });
 
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
 
 
                 if (position < 0) {
@@ -85,27 +92,45 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                     System.out.println(position);
                     System.out.println(id);
 
-
-
-                    TextView adresstv = (TextView) view.findViewById(R.id.lv_adress);
-
-                
-
+                    adress = ParseJSON.adress[position];
+                    name = ParseJSON.names[position];
+                    System.out.println("TEST TEST TEST >>> " + adress);
 
 
 
+                        /**
+                         TextView adresstv = (TextView) view.findViewById(R.id.lv_adress);
 
-                    String str = (String) parent.getItemAtPosition(position);
-                    String adress = adresstv.getText().toString();
-                    System.out.println(str);
-                    System.out.println(adress);
+                         String str = (String) parent.getItemAtPosition(position);
+                         String adress = adresstv.getText().toString();
+                         System.out.println(str);
+                         System.out.println(adress);
+                         */
 
 
+                    }
                 }
             }
-        });
+
+            );
+
+        }
+
+    /**
+    public void show(String json){
+
+        ParseJSON pj = new ParseJSON(json);
+        pj.parseJSON();
+        CustomList cl = new CustomList(this, pj.names, pj.fNr, pj.adress, pj.byggår);
+
+        String[] name = cl.getNames();
+        String[] adress = cl.getAdress();
+
+        System.out.println(name);
+        System.out.println(adress);
 
     }
+     */
 
 
 
@@ -143,6 +168,8 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         sendRequest();
     }
+
+
 
 
 
@@ -199,7 +226,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
                 HashMap<String, String> hashMap = new HashMap<String, String>();
-                hashMap.put("namn", nameText.getText().toString());
+                hashMap.put("namn", name);
 
 
                 return hashMap;
@@ -207,6 +234,8 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
         };
         requestQueue.add(request);
     }
+
+
 
 
 
@@ -220,7 +249,80 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                 .setNegativeButton("PDF", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
+
+
+                        RequestQueue requestQueue;
+                        final PdfCreator pdfCreator = new PdfCreator();
+                        requestQueue = Volley.newRequestQueue(Listview_activity.this);
+
+                        request = new StringRequest(Request.Method.POST, JSON_URL1,   new Response.Listener<String>() {
+
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+
+                                    JSONArray value = new JSONArray(response);
+
+
+                                    for(int i=0;i<value.length();i++) {
+                                        JSONObject jr = (JSONObject) value.get(i);
+
+                                        String namn = jr.getString("namn");
+                                        String fastighetsNr = jr.getString("fastighetsNr");
+                                        String adress = jr.getString("adress");
+                                        String buildYear = jr.getString("buildYear");
+
+                                        pdfCreator.createPDF(namn, fastighetsNr, adress, buildYear);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+
+                            }
+                        }){
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+
+
+
+                                HashMap<String, String> hashMap = new HashMap<String, String>();
+                                hashMap.put("namn", name);
+
+
+                                return hashMap;
+                            }
+                        };
+                        requestQueue.add(request);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         Toast.makeText(Listview_activity.this, "You Clicked on no", Toast.LENGTH_LONG).show();
+
                     }
                 }).setPositiveButton("Editera", new DialogInterface.OnClickListener() {
             @Override
