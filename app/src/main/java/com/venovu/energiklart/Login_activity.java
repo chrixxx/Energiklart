@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login_activity extends AppCompatActivity {
-    public static final String URL = "http://venovu.com/login.php";
+    public static String URL = "";
     private StringRequest request;
 
     private Button login;
@@ -62,8 +62,8 @@ public class Login_activity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+                URL = "http://enegiklart.azurewebsites.net/user/" + user.getText().toString()+ "/" +pass.getText().toString();
+                request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
 
                     @Override
                     public void onResponse(String response) {
@@ -77,7 +77,7 @@ public class Login_activity extends AppCompatActivity {
                                 //Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), Create_account.class);
 
-                                /**
+                                /*
                                 //shared preferences för username och password för att kunna skapa kund och hus
                                 String n = user.getText().toString();
                                 String u = pass.getText().toString();
@@ -89,19 +89,20 @@ public class Login_activity extends AppCompatActivity {
                                 editor.putString(userPass, u);
 
                                 editor.commit();
-                                 */
+
 
 
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();
+                                */
                             }
 
 
 
 
-                            else if (jsonObject.names().get(0).equals("success")) {
-                                Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
+                            if (jsonObject.names().get(0).equals("success")) {
+                                Toast.makeText(getApplicationContext(), jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 
                                 //shared preferences för username och password för att kunna skapa kund och hus

@@ -82,7 +82,7 @@ public class Create_account extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), Login_activity.class);
 
                                  /**
-                                //shared preferences för username och password för att kunna skapa kund och hus
+                                shared preferences för username och password för att kunna skapa kund och hus
                                 String n = user.getText().toString();
                                 String u = pass.getText().toString();
                                 loggedIn = true;

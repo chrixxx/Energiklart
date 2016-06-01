@@ -24,29 +24,29 @@
         </activity>
         <activity
             android:name=".Kund_activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Rond_activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Create_account"
-            android:screenOrientation="portrait"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".Listview_activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden" />
 
         <activity android:name=".Make_performance"
-            android:screenOrientation="portrait"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden" />
     </application>
 
