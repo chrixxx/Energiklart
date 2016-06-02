@@ -101,7 +101,7 @@ public class Make_performance extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                 InsertKund();
-                InsertHouse();
+
 
            }
        });
@@ -162,6 +162,7 @@ public class Make_performance extends AppCompatActivity {
                         try {
                             if (response.names().get(0).equals("success")) {
                                 Toast.makeText(getApplicationContext(), response.getString("success"), Toast.LENGTH_SHORT).show();
+                                InsertHouse();
                             }
                             else{
                                 Toast.makeText(getApplicationContext(), "Error" + response.getString("error"), Toast.LENGTH_SHORT).show();
@@ -252,23 +253,7 @@ public class Make_performance extends AppCompatActivity {
 
 
 
-    public void clearFields(){
-        ownerName.setText("");
-        ssn.setText("");
-        propertyNr.setText("");
-        adress.setText("");
-        postNr.setText("");
-        postOrt .setText("");
-        fakturAd .setText("");
-        phone .setText("");
-        cellphone.setText("");
-        mail.setText("");
-        tempVinter.setText("");
-        tempVinterKa.setText("");
-        inhabitants.setText("");
-        buildYear .setText("");
-        floors.setText("");
-    }
+
 
     @Override
     public void onBackPressed(){

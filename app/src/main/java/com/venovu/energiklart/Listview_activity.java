@@ -35,10 +35,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Listview_activity extends AppCompatActivity implements View.OnClickListener {
+public class Listview_activity extends AppCompatActivity  {
 
     public static String JSON_URL = "";
-    public static final String JSON_URL1 = "http://venovu.com/fetchOwner.php";
+    public static  String JSON_URL1 = "";
     public static final String userDetails = "userDetails" ;
     private Button buttonGet;
     private Button pdfButton;
@@ -59,19 +59,25 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
         nameText = (EditText) findViewById(R.id.owner);
         pdfButton = (Button) findViewById(R.id.pdfButton);
         buttonGet = (Button) findViewById(R.id.buttonGet);
-        buttonGet.setOnClickListener(this);
+
         listView = (ListView) findViewById(R.id.listView);
 
 
+        buttonGet.setOnClickListener(new View.OnClickListener() {
 
+            @Override public void onClick(View v) {
+                sendRequest();
 
-
-        pdfButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Pdf();
             }
         });
+
+
+                pdfButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Pdf();
+                    }
+                });
 
 
 
@@ -135,7 +141,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
     private void sendRequest(){
-        JSON_URL = "http://enegiklart.azurewebsites.net/owner/" + nameText.getText().toString();
+        JSON_URL = "http://enegiklart.azurewebsites.net/owner" + "/" + nameText.getText().toString();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
@@ -165,10 +171,9 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
     }
 
-    @Override
-    public void onClick(View v) {
-        sendRequest();
-    }
+
+
+
 
 
 
@@ -176,9 +181,10 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
     public void Pdf(){
         final PdfCreator pdfCreator = new PdfCreator();
+        JSON_URL = "http://enegiklart.azurewebsites.net/owner" + "/" + nameText.getText().toString();
         requestQueue = Volley.newRequestQueue(this);
 
-        request = new StringRequest(Request.Method.POST, JSON_URL1,   new Response.Listener<String>() {
+        request = new StringRequest(Request.Method.POST, JSON_URL,   new Response.Listener<String>() {
 
 
 
@@ -242,7 +248,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
     //popup dialog test
     public void alertD() {
-
+        JSON_URL1 = "http://enegiklart.azurewebsites.net/owner/" + nameText.getText().toString();
         AlertDialog.Builder alertdialog = new AlertDialog.Builder(Listview_activity.this);
         alertdialog.setTitle("PDF/Editera");
         alertdialog.setMessage("Vad vill du göra?").setCancelable(true)
