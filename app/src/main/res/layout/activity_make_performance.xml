@@ -159,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Faktura 10 dagar"
-                android:id="@+id/fatktura10"
+                android:id="@+id/faktura10"
                 android:layout_marginTop="53dp"
                 android:layout_below="@+id/mail"
                 android:layout_alignParentStart="true" />
@@ -169,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:text="Faktura 30 dagar"
                 android:id="@+id/faktura30"
-                android:layout_below="@+id/fatktura10"
+                android:layout_below="@+id/faktura10"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp" />
 
@@ -262,7 +262,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/floors"
                 android:hint="Antal våningsplan"
-                android:layout_alignBottom="@+id/h-el"
+                android:layout_alignBottom="@+id/h_el"
                 android:layout_alignParentStart="true" />
 
             <CheckBox
@@ -316,7 +316,7 @@
             <EditText
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/h-el"
+                android:id="@+id/h_el"
                 android:hint="H-el"
                 android:layout_alignStart="@+id/period"
                 android:layout_below="@+id/period"
@@ -328,7 +328,7 @@
                 android:id="@+id/water"
                 android:hint="Vatten m3"
                 android:layout_alignStart="@+id/period"
-                android:layout_below="@+id/h-el"
+                android:layout_below="@+id/h_el"
                 android:layout_marginTop="20dp"/>
 
             <EditText

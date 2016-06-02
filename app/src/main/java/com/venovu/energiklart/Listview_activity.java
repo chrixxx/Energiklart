@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class Listview_activity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String JSON_URL = "http://venovu.com/fetchHouseData.php";
+    public static String JSON_URL = "";
     public static final String JSON_URL1 = "http://venovu.com/fetchOwner.php";
     public static final String userDetails = "userDetails" ;
     private Button buttonGet;
@@ -135,6 +135,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
     private void sendRequest(){
+        JSON_URL = "http://enegiklart.azurewebsites.net/owner/" + nameText.getText().toString();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, JSON_URL,
                 new Response.Listener<String>() {
@@ -194,14 +195,14 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                     for(int i=0;i<value.length();i++) {
                         JSONObject jr = (JSONObject) value.get(i);
 
-                        String namn = jr.getString("namn");
-                        String fastighetsNr = jr.getString("fastighetsNr");
+                        String namn = jr.getString("name");
+                        String fastighetsNr = jr.getString("propertyNr");
                         String adress = jr.getString("adress");
                         String buildYear = jr.getString("buildYear");
 
 
 
-                        pdfCreator.createPDF(namn, fastighetsNr, adress, buildYear);
+                        pdfCreator.createPDF(name, fastighetsNr, adress, buildYear);
 
 
                     }
@@ -226,7 +227,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
                 HashMap<String, String> hashMap = new HashMap<String, String>();
-                hashMap.put("namn", name);
+                hashMap.put("name", name);
 
 
                 return hashMap;
@@ -268,8 +269,8 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
                                     for(int i=0;i<value.length();i++) {
                                         JSONObject jr = (JSONObject) value.get(i);
 
-                                        String namn = jr.getString("namn");
-                                        String fastighetsNr = jr.getString("fastighetsNr");
+                                        String namn = jr.getString("name");
+                                        String fastighetsNr = jr.getString("propertyNr");
                                         String adress = jr.getString("adress");
                                         String buildYear = jr.getString("buildYear");
 
@@ -291,7 +292,7 @@ public class Listview_activity extends AppCompatActivity implements View.OnClick
 
 
                                 HashMap<String, String> hashMap = new HashMap<String, String>();
-                                hashMap.put("namn", name);
+                                hashMap.put("name", name);
 
 
                                 return hashMap;

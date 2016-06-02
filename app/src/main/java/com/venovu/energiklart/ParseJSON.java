@@ -17,8 +17,8 @@ public class ParseJSON {
     public static String [] byggår;
 
 
-    public static final String KEY_NAME = "namn";
-    public static final String KEY_FNR = "fastighetsNr";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_FNR = "propertyNr";
     public static final String KEY_ADRESS = "adress";
     public static final String KEY_BYGGÅR = "buildYear";
 

@@ -73,7 +73,7 @@ public class Login_activity extends AppCompatActivity {
 
                             JSONObject jsonObject = new JSONObject(response);
 
-                            if (userPassing.equals(rootPass) && getPass.equals(rootPass)) {
+                           /* if (userPassing.equals(rootPass) && getPass.equals(rootPass)) {
                                 //Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), Create_account.class);
 
@@ -95,8 +95,8 @@ public class Login_activity extends AppCompatActivity {
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(intent);
                                 killActivity();
-                                */
-                            }
+
+                            }*/
 
 
 

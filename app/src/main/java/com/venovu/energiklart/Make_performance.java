@@ -54,7 +54,7 @@ public class Make_performance extends AppCompatActivity {
 
     StringRequest request;
 
-    public static  String URL = "http://venovu.com/registerKund.php";
+    public static  String URL = "";
 
     RequestQueue requestQueue;
 
@@ -76,7 +76,7 @@ public class Make_performance extends AppCompatActivity {
        adress = (EditText)findViewById(R.id.adress);
        postNr = (EditText)findViewById(R.id.postNr);
        postOrt = (EditText)findViewById(R.id.postOrt);
-        fakturAd = (EditText)findViewById(R.id.fakturaAd);
+        fakturAd = (EditText)findViewById(R.id.fakturAd);
        phone = (EditText)findViewById(R.id.phone);
         cellphone= (EditText)findViewById(R.id.cellphone);
        mail = (EditText)findViewById(R.id.mail);
@@ -94,11 +94,15 @@ public class Make_performance extends AppCompatActivity {
        gabel =(CheckBox)findViewById(R.id.gabel);
        free =(CheckBox)findViewById(R.id.free);
        middle =(CheckBox)findViewById(R.id.middle);
+        requestQueue = Volley.newRequestQueue(this);
+
 
        insertButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                 InsertKund();
+                InsertHouse();
+
            }
        });
     }
@@ -106,7 +110,9 @@ public class Make_performance extends AppCompatActivity {
 
 
     public void InsertKund() {
-        URL = "http://enegiklart.azurewebsites.net/user";
+
+
+        URL = "http://enegiklart.azurewebsites.net/owner";
         SharedPreferences prefs = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
         String restoredName = prefs.getString("nameKey", null);
         String restoredPass = prefs.getString("passKey",null);
@@ -135,7 +141,7 @@ public class Make_performance extends AppCompatActivity {
             params.put("faktura30", "0");
         params.put("otherFakturor", "0");
         //Sparar inskrivna fastighetnr och SSN till shared preferences
-        String fastighet = propertyNr.getText().toString();
+       /* String fastighet = propertyNr.getText().toString();
         String ssNr = ssn.getText().toString();
 
         SharedPreferences.Editor editor = prefs.edit();
@@ -144,17 +150,22 @@ public class Make_performance extends AppCompatActivity {
         editor.putString(socialNr, ssNr);
 
 
-        editor.commit();
+        editor.commit();*/
 
 
 
 
-        JsonObjectRequest req = new JsonObjectRequest(URL, new JSONObject(params),
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST ,URL, new JSONObject(params),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            VolleyLog.v(response.toString(4));
+                            if (response.names().get(0).equals("success")) {
+                                Toast.makeText(getApplicationContext(), response.getString("success"), Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Error" + response.getString("error"), Toast.LENGTH_SHORT).show();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -171,7 +182,8 @@ public class Make_performance extends AppCompatActivity {
 
     public void InsertHouse(){
 
-        URL = "http://enegiklart.azurewebsites.net/user";
+
+        URL = "http://enegiklart.azurewebsites.net/house";
         SharedPreferences prefs = getSharedPreferences(userDetails, Context.MODE_PRIVATE);
         String restoredName = prefs.getString("nameKey", null);
         String restoredPass = prefs.getString("passKey", null);
@@ -199,10 +211,10 @@ public class Make_performance extends AppCompatActivity {
         else
             hashMap.put("intermediate", "0");
         hashMap.put("buildYear", buildYear.getText().toString());
-        hashMap.put("owner_fastighetsNr", restoredFnr);
-        hashMap.put("owner_ssn", restoredSsn);
-        hashMap.put("date", null);
-        hashMap.put("owner_ssn", "1");
+        hashMap.put("owner_fastighetsNr", propertyNr.getText().toString());
+        hashMap.put("owner_ssn", ssn.getText().toString());
+        hashMap.put("datum", "2002-04-05");
+        hashMap.put("counter", "1");
 
 
 
@@ -212,12 +224,17 @@ public class Make_performance extends AppCompatActivity {
 
 
 
-        JsonObjectRequest req = new JsonObjectRequest(URL, new JSONObject(hashMap),
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, URL, new JSONObject(hashMap),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            VolleyLog.v(response.toString(4));
+                            if (response.names().get(0).equals("success")) {
+                                Toast.makeText(getApplicationContext(), response.getString("success"), Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Error" + response.getString("error"), Toast.LENGTH_SHORT).show();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -235,7 +252,23 @@ public class Make_performance extends AppCompatActivity {
 
 
 
-
+    public void clearFields(){
+        ownerName.setText("");
+        ssn.setText("");
+        propertyNr.setText("");
+        adress.setText("");
+        postNr.setText("");
+        postOrt .setText("");
+        fakturAd .setText("");
+        phone .setText("");
+        cellphone.setText("");
+        mail.setText("");
+        tempVinter.setText("");
+        tempVinterKa.setText("");
+        inhabitants.setText("");
+        buildYear .setText("");
+        floors.setText("");
+    }
 
     @Override
     public void onBackPressed(){
