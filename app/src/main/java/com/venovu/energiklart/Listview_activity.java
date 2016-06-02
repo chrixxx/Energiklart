@@ -184,7 +184,7 @@ public class Listview_activity extends AppCompatActivity  {
         JSON_URL = "http://enegiklart.azurewebsites.net/owner" + "/" + nameText.getText().toString();
         requestQueue = Volley.newRequestQueue(this);
 
-        request = new StringRequest(Request.Method.POST, JSON_URL,   new Response.Listener<String>() {
+        request = new StringRequest(Request.Method.GET, JSON_URL,   new Response.Listener<String>() {
 
 
 
@@ -263,7 +263,7 @@ public class Listview_activity extends AppCompatActivity  {
                         final PdfCreator pdfCreator = new PdfCreator();
                         requestQueue = Volley.newRequestQueue(Listview_activity.this);
 
-                        request = new StringRequest(Request.Method.POST, JSON_URL1,   new Response.Listener<String>() {
+                        request = new StringRequest(Request.Method.GET, JSON_URL1,   new Response.Listener<String>() {
 
                             @Override
                             public void onResponse(String response) {
