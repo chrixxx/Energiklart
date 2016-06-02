@@ -233,7 +233,7 @@ public class Listview_activity extends AppCompatActivity  {
 
 
                 HashMap<String, String> hashMap = new HashMap<String, String>();
-                hashMap.put("name", name);
+                hashMap.put("name", nameText.getText().toString());
 
 
                 return hashMap;
@@ -248,7 +248,7 @@ public class Listview_activity extends AppCompatActivity  {
 
     //popup dialog test
     public void alertD() {
-        JSON_URL1 = "http://enegiklart.azurewebsites.net/owner/" + nameText.getText().toString();
+        JSON_URL1 = "http://enegiklart.azurewebsites.net/owner/" + name;
         AlertDialog.Builder alertdialog = new AlertDialog.Builder(Listview_activity.this);
         alertdialog.setTitle("PDF/Editera");
         alertdialog.setMessage("Vad vill du göra?").setCancelable(true)
