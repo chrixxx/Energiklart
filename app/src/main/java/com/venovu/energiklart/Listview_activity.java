@@ -208,7 +208,7 @@ public class Listview_activity extends AppCompatActivity  {
 
 
 
-                        pdfCreator.createPDF(name, fastighetsNr, adress, buildYear);
+                        pdfCreator.createPDF(namn, fastighetsNr, adress, buildYear);
 
 
                     }
