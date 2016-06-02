@@ -124,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fått BG"
-        android:id="@+id/checkBox3"
+        android:id="@+id/faktura30"
         android:layout_below="@+id/adress"
         android:layout_alignStart="@+id/fakturaAd" />
 
@@ -142,7 +142,7 @@
         android:text="Faktura 10 dagar"
         android:id="@+id/faktura10"
         android:layout_alignTop="@+id/postNr"
-        android:layout_alignStart="@+id/checkBox3" />
+        android:layout_alignStart="@+id/faktura30" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

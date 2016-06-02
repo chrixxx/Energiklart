@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mekanisk ventilation (F)"
-        android:id="@+id/checkBox7"
+        android:id="@+id/free"
         android:layout_below="@+id/view"
         android:layout_alignStart="@+id/view"
         android:layout_marginTop="73dp" />
@@ -26,25 +26,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mekanisk ventilation med återvinning (FX)"
-        android:id="@+id/checkBox8"
-        android:layout_below="@+id/checkBox7"
-        android:layout_alignStart="@+id/checkBox7" />
+        android:id="@+id/gabel"
+        android:layout_below="@+id/free"
+        android:layout_alignStart="@+id/free" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mekanisk ventilation med från- och tilluft (FT)"
-        android:id="@+id/checkBox9"
-        android:layout_below="@+id/checkBox8"
-        android:layout_alignStart="@+id/checkBox8" />
+        android:id="@+id/middle"
+        android:layout_below="@+id/gabel"
+        android:layout_alignStart="@+id/gabel" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mekanisk ventialtion med från- och tilluft inkl värmeväxlare (FTX)"
-        android:id="@+id/checkBox10"
-        android:layout_below="@+id/checkBox9"
-        android:layout_alignStart="@+id/checkBox9" />
+        android:id="@+id/direct_el"
+        android:layout_below="@+id/middle"
+        android:layout_alignStart="@+id/middle" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         android:text="Självdrag"
         android:id="@+id/checkBox11"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/checkBox10" />
+        android:layout_alignStart="@+id/direct_el" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
         android:hint="Vindsisolering tjocklek"
         android:ems="10"
         android:id="@+id/editText22"
-        android:layout_above="@+id/checkBox8"
+        android:layout_above="@+id/gabel"
         android:layout_alignParentEnd="true" />
 
     <EditText
@@ -98,7 +98,7 @@
         android:hint="Yta i m2"
         android:ems="10"
         android:id="@+id/editText23"
-        android:layout_alignBottom="@+id/checkBox10"
+        android:layout_alignBottom="@+id/direct_el"
         android:layout_alignStart="@+id/editText22" />
 
     <EditText
